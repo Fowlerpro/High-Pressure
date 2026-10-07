@@ -7,6 +7,8 @@ public class HallwayTiles : MonoBehaviour
     {
         if (leftWall.enabled)
             leftWall.Spawn();
+        else
+            leftWall.RemoveWall();
     }
 
     [System.Serializable]
@@ -16,10 +18,13 @@ public class HallwayTiles : MonoBehaviour
         public Transform leftWallSpot;
 
         public GameObject leftPrefab;
+        public GameObject newLeftWall;
         public void Spawn()
         {
+            if (newLeftWall != null)
+                return;
             Debug.Log("spawning left wall");
-            public GameObject newLeftWall = Instantiate(leftPrefab, leftWallSpot);
+            newLeftWall = Instantiate(leftPrefab, leftWallSpot);
 
             newLeftWall.transform.localPosition = Vector3.zero;
             newLeftWall.transform.localRotation = Quaternion.identity;
@@ -35,3 +40,4 @@ public class HallwayTiles : MonoBehaviour
             newLeftWall = null;
         }
     }
+}
