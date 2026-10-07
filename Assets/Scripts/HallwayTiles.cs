@@ -2,6 +2,7 @@ using UnityEngine;
 [ExecuteAlways]
 public class HallwayTiles : MonoBehaviour
 {
+    
     public leftWallOptions leftWall;
     private void OnValidate()
     {
@@ -9,6 +10,7 @@ public class HallwayTiles : MonoBehaviour
             leftWall.Spawn();
         else
             leftWall.RemoveWall();
+        
     }
 
     [System.Serializable]
@@ -36,7 +38,7 @@ public class HallwayTiles : MonoBehaviour
 
             Debug.Log("Removing left wall");
 
-            DestroyImmediate(newLeftWall);
+            destroyImmediate(newLeftWall);
             newLeftWall = null;
         }
     }
