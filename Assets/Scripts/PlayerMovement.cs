@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,17 +8,22 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f;
     public float sprintSpeed = 18f;
     public float crouchSpeed = 6f;
+    public float gravity = -20f;
 
     public Transform playerCamera;
 
-    float normalCameraHeight;
     public float crouchCameraHeight = 0.5f;
+
+    float normalCameraHeight;
+    float normalPlayerHeight;
+    float yVelocity;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
 
         normalCameraHeight = playerCamera.localPosition.y;
+        normalPlayerHeight = controller.height;
     }
 
     void Update()
@@ -27,12 +33,14 @@ public class PlayerMovement : MonoBehaviour
 
         float moveSpeed = speed;
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        // Sprint
+        if (Keyboard.current.leftShiftKey.isPressed)
         {
             moveSpeed = sprintSpeed;
         }
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        // Crouch
+        if (Keyboard.current.leftCtrlKey.isPressed)
         {
             moveSpeed = crouchSpeed;
 
@@ -44,18 +52,45 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            controller.height = 2f;
+            controller.height = normalPlayerHeight;
 
             Vector3 cameraPos = playerCamera.localPosition;
             cameraPos.y = normalCameraHeight;
             playerCamera.localPosition = cameraPos;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        // Movement
+        float x = 0;
+        float z = 0;
+
+        if (Keyboard.current.aKey.isPressed)
+            x = -1;
+
+        if (Keyboard.current.dKey.isPressed)
+            x = 1;
+
+        if (Keyboard.current.wKey.isPressed)
+            z = 1;
+
+        if (Keyboard.current.sKey.isPressed)
+            z = -1;
 
         Vector3 move = transform.right * x + transform.forward * z;
 
+        move = move.normalized;
+
         controller.Move(move * moveSpeed * Time.deltaTime);
+
+        // Gravity
+        if (controller.isGrounded && yVelocity < 0)
+        {
+            yVelocity = -2f;
+        }
+
+        yVelocity += gravity * Time.deltaTime;
+
+        controller.Move(
+            Vector3.up * yVelocity * Time.deltaTime
+        );
     }
 }
