@@ -2,15 +2,16 @@ using UnityEngine;
 [ExecuteAlways]
 public class HallwayTiles : MonoBehaviour
 {
-    
+
     public leftWallOptions leftWall;
     public rightWallOptions rightWall;
+    public northWallOptions northWall;
     private void OnValidate()
     {
         //when the check box is enabled or disabled run update walls which should delete walls when something is off
 #if UNITY_EDITOR
-    UnityEditor.EditorApplication.delayCall -= UpdateWalls;
-    UnityEditor.EditorApplication.delayCall += UpdateWalls;
+        UnityEditor.EditorApplication.delayCall -= UpdateWalls;
+        UnityEditor.EditorApplication.delayCall += UpdateWalls;
 #endif
     }
     private void UpdateWalls()
@@ -41,6 +42,18 @@ public class HallwayTiles : MonoBehaviour
             rightWall.Spawn();
         else
             rightWall.RemoveWall();
+        if (northWall != null)
+        {
+            if (northWall.enabled)
+                northWall.Spawn();
+            else
+                northWall.RemoveWall();
+        }
+
+        if (northWall.enabled)
+            northWall.Spawn();
+        else
+            northWall.RemoveWall();
 
     }
     [System.Serializable]
@@ -74,7 +87,7 @@ public class HallwayTiles : MonoBehaviour
             DestroyImmediate(newLeftWall);
             newLeftWall = null;
         }
-       
+
     }
     [System.Serializable]
     public class rightWallOptions
@@ -107,4 +120,35 @@ public class HallwayTiles : MonoBehaviour
             newRightWall = null;
         }
     }
+    [System.Serializable]
+    public class northWallOptions
+    {
+        public bool enabled = true;
+        public Transform northWallSpot;
+
+        public GameObject northPrefab;
+        public GameObject newNorthWall;
+        public void Spawn()
+        {
+            if (newNorthWall != null)
+                return;
+            if (northPrefab == null || northWallSpot == null)
+                return;
+            Debug.Log("spawning North wall");
+            newNorthWall = Instantiate(northPrefab, northWallSpot);
+
+            newNorthWall.transform.localPosition = Vector3.zero;
+            newNorthWall.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveWall()
+        {
+            if (newNorthWall == null)
+                return;
+
+            Debug.Log("Removing North wall");
+
+            DestroyImmediate(newNorthWall);
+            newNorthWall = null;
+        }
     }
+}
