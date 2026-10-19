@@ -2,30 +2,60 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    CharacterController controller;
 
-    private CharacterController controller;
     public float speed = 12f;
-   
-   
-    Vector3 V;
-    private void Awake()
+    public float sprintSpeed = 18f;
+    public float crouchSpeed = 6f;
+
+    public Transform playerCamera;
+
+    float normalCameraHeight;
+    public float crouchCameraHeight = 0.5f;
+
+    void Start()
     {
-        controller = gameObject.GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
+
+        normalCameraHeight = playerCamera.localPosition.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (MouseLook.CanMove == false) return;
-        if (controller.isGrounded && V.y < 0)
-        {
-            V.y = -2f;
-        }
-        float X = Input.GetAxis("Horizontal");
-        float Z = Input.GetAxis("Vertical");
-        Vector3 M = transform.right * X + transform.forward * Z;
-        controller.Move(M * speed * Time.deltaTime);
-       
-    }
+        if (MouseLook.CanMove == false)
+            return;
 
+        float moveSpeed = speed;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = sprintSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            moveSpeed = crouchSpeed;
+
+            controller.height = 1f;
+
+            Vector3 cameraPos = playerCamera.localPosition;
+            cameraPos.y = crouchCameraHeight;
+            playerCamera.localPosition = cameraPos;
+        }
+        else
+        {
+            controller.height = 2f;
+
+            Vector3 cameraPos = playerCamera.localPosition;
+            cameraPos.y = normalCameraHeight;
+            playerCamera.localPosition = cameraPos;
+        }
+
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        controller.Move(move * moveSpeed * Time.deltaTime);
+    }
 }
