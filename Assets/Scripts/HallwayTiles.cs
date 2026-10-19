@@ -6,6 +6,7 @@ public class HallwayTiles : MonoBehaviour
     public leftWallOptions leftWall;
     public rightWallOptions rightWall;
     public northWallOptions northWall;
+    public southWallOptions southWall;
     private void OnValidate()
     {
         //when the check box is enabled or disabled run update walls which should delete walls when something is off
@@ -54,6 +55,18 @@ public class HallwayTiles : MonoBehaviour
             northWall.Spawn();
         else
             northWall.RemoveWall();
+        if (southWall != null)
+        {
+            if (southWall.enabled)
+                southWall.Spawn();
+            else
+                southWall.RemoveWall();
+        }
+
+        if (southWall.enabled)
+            southWall.Spawn();
+        else
+            southWall.RemoveWall();
 
     }
     [System.Serializable]
@@ -149,6 +162,37 @@ public class HallwayTiles : MonoBehaviour
 
             DestroyImmediate(newNorthWall);
             newNorthWall = null;
+        }
+    }
+    [System.Serializable]
+    public class southWallOptions
+    {
+        public bool enabled = true;
+        public Transform southWallSpot;
+
+        public GameObject southPrefab;
+        public GameObject newSouthWall;
+        public void Spawn()
+        {
+            if (newSouthWall != null)
+                return;
+            if (southPrefab == null || southWallSpot == null)
+                return;
+            Debug.Log("spawning South wall");
+            newSouthWall = Instantiate(southPrefab, southWallSpot);
+
+            newSouthWall.transform.localPosition = Vector3.zero;
+            newSouthWall.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveWall()
+        {
+            if (newSouthWall == null)
+                return;
+
+            Debug.Log("Removing North wall");
+
+            DestroyImmediate(newSouthWall);
+            newSouthWall = null;
         }
     }
 }
