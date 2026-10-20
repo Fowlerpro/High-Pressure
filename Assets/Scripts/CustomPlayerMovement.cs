@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class CustomPlayerMovement : MonoBehaviour
 {
+
     CharacterController controller;
 
     public float speed = 12f;
