@@ -1,14 +1,16 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PickupItem : MonoBehaviour
 {
     public GameObject flashlight;
 
-    private bool playerInside = false;
+    bool playerInside = false;
 
     void Update()
     {
-        if (playerInside && Input.GetKeyDown(KeyCode.E))
+        if (playerInside &&
+            Keyboard.current.eKey.wasPressedThisFrame)
         {
             if (flashlight != null)
             {

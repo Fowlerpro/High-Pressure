@@ -1,23 +1,29 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-    public class MouseLook : MonoBehaviour
+public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = 0.1f;
+
     public Transform PlayerBody;
+
     float Xrot = 0f;
+
     public static bool CanMove = true;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Escape
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             CanMove = !CanMove;
+
             if (CanMove == false)
             {
                 Cursor.lockState = CursorLockMode.None;
@@ -30,15 +36,24 @@ using UnityEngine;
                 Cursor.visible = false;
                 Time.timeScale = 1;
             }
-
         }
-        if (CanMove == false) return;
-        float mousex = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        if (CanMove == false)
+            return;
+
+        // Mouse movement
+        Vector2 mouseMove = Mouse.current.delta.ReadValue();
+
+        float mouseX = mouseMove.x * mouseSensitivity;
+        float mouseY = mouseMove.y * mouseSensitivity;
+
         Xrot -= mouseY;
-        Xrot = Mathf.Clamp(Xrot, -90, 90);
-        transform.localRotation = Quaternion.Euler(Xrot, 0f, 0f);
-        PlayerBody.Rotate(Vector3.up * mousex);
+
+        Xrot = Mathf.Clamp(Xrot, -90f, 90f);
+
+        transform.localRotation =
+            Quaternion.Euler(Xrot, 0f, 0f);
+
+        PlayerBody.Rotate(Vector3.up * mouseX);
     }
 }
-
