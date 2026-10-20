@@ -68420,7 +68420,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 10000
     distanceFadeEnd: 10000
-    textureOffset: {x: -1.0422394, y: -0, z: -1.2506872}
+    textureOffset: {x: -12.519504, y: -0, z: -15.023404}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -71761,7 +71761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1916935667
 MonoBehaviour:
   m_ObjectHideFlags: 0
