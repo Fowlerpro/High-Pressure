@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 4
   meteringMode:
     m_OverrideState: 1
     m_Value: 2
@@ -223,7 +223,7 @@ MonoBehaviour:
     m_Value: 55261.973
   aerosolDensity:
     m_OverrideState: 0
-    m_Value: 0.01192826
+    m_Value: 0.113
   aerosolTint:
     m_OverrideState: 0
     m_Value: {r: 0.9, g: 0.9, b: 0.9, a: 1}
@@ -315,7 +315,7 @@ MonoBehaviour:
     m_Value: 30
   ambientProbeDimmer:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.411
 --- !u!114 &-1798655643217039725
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -332,7 +332,7 @@ MonoBehaviour:
   interCascadeBorders: 1
   maxShadowDistance:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 51.44
   directionalTransmissionMultiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -374,8 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   quality:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 2
   enabled:
     m_OverrideState: 1
     m_Value: 1
@@ -413,16 +413,16 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   albedo:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   globalLightProbeDimmer:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   depthExtent:
-    m_OverrideState: 0
-    m_Value: 64
+    m_OverrideState: 1
+    m_Value: 400.01
   denoisingMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 2
   anisotropy:
     m_OverrideState: 0
@@ -434,7 +434,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   m_FogControlMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   screenResolutionPercentage:
     m_OverrideState: 0
@@ -443,10 +443,10 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 64
   m_VolumetricFogBudget:
-    m_OverrideState: 0
-    m_Value: 0.5
+    m_OverrideState: 1
+    m_Value: 0.75
   m_ResolutionDepthRatio:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.5
   directionalLightsOnly:
     m_OverrideState: 0
@@ -563,7 +563,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 0
-    m_Value: 2
+    m_Value: 3
   enabled:
     m_OverrideState: 1
     m_Value: 1
@@ -587,7 +587,7 @@ MonoBehaviour:
     m_Value: 1
   depthBufferThickness:
     m_OverrideState: 1
-    m_Value: 0.09
+    m_Value: 0.108
   screenFadeDistance:
     m_OverrideState: 0
     m_Value: 0.1
@@ -617,7 +617,7 @@ MonoBehaviour:
     m_Value: 0
   m_RayMaxIterations:
     m_OverrideState: 0
-    m_Value: 64
+    m_Value: 91
   rayMiss:
     m_OverrideState: 0
     m_Value: 3
