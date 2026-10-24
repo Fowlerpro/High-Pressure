@@ -17,7 +17,6 @@ public class ComputerInteract : MonoBehaviour
         // Get the player's CharacterController
         playerController = player.GetComponent<CharacterController>();
 
-        // Hide the computer interface at the start
         pcPOV.gameObject.SetActive(false);
         pcScreen.SetActive(false);
 
@@ -32,11 +31,9 @@ public class ComputerInteract : MonoBehaviour
         {
             usingComputer = true;
 
-            // Activate the computer interface
             pcPOV.gameObject.SetActive(true);
             pcScreen.SetActive(true);
 
-            // Show and unlock the mouse
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
@@ -48,11 +45,9 @@ public class ComputerInteract : MonoBehaviour
         {
             usingComputer = false;
 
-            // Deactivate the computer interface
             pcPOV.gameObject.SetActive(false);
             pcScreen.SetActive(false);
 
-            // Hide and lock the mouse again
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 

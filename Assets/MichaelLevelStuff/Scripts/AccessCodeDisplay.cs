@@ -9,6 +9,8 @@ public class AccessCodeDisplay : MonoBehaviour
     private float timer = 20f;
     private float changeTime = 20f;
 
+    public string CurrentCode { get; private set; }
+
     void Start()
     {
         GenerateCode();
@@ -31,7 +33,9 @@ public class AccessCodeDisplay : MonoBehaviour
     void GenerateCode()
     {
         int code = Random.Range(0, 10000);
-        codeText.text = code.ToString("D4");
+
+        CurrentCode = code.ToString("D4");
+        codeText.text = CurrentCode;
     }
 
     void UpdateCountdown()

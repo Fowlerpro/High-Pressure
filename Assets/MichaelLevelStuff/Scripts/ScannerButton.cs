@@ -27,7 +27,6 @@ public class ScannerButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             {
                 holdCompleted = true;
 
-                // Turn on the scanner light after 3 seconds
                 scannerLight.SetActive(true);
             }
         }
@@ -39,10 +38,8 @@ public class ScannerButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         holdCompleted = false;
         isHolding = true;
 
-        // Turn off the light when starting a new scan
         scannerLight.SetActive(false);
 
-        // Start the arm reaching animation
         armAnimator.SetTrigger("Reach");
         armAnimator.SetBool("IsHolding", true);
     }
@@ -51,16 +48,13 @@ public class ScannerButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         isHolding = false;
 
-        // Make the arm retreat
         armAnimator.SetBool("IsHolding", false);
 
-        // Log in only if the player held for 3 seconds
         if (holdCompleted)
         {
             computerScreen.Login();
         }
 
-        // Turn off the scanner light when released
         scannerLight.SetActive(false);
 
         holdTime = 0f;

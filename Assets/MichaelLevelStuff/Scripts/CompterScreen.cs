@@ -6,10 +6,8 @@ public class CompterScreen : MonoBehaviour
     public GameObject filesScreen;
     public GameObject accessScreen;
 
-    // Screen shown after logging in
     public GameObject loggedInScreen;
 
-    // Restricted feature
     public GameObject restrictedButton;
     public GameObject restrictedScreen;
 
@@ -17,7 +15,6 @@ public class CompterScreen : MonoBehaviour
 
     void Start()
     {
-        // Start logged out
         isLoggedIn = false;
 
         accessScreen.SetActive(true);
@@ -86,7 +83,6 @@ public class CompterScreen : MonoBehaviour
         restrictedButton.SetActive(false);
         restrictedScreen.SetActive(false);
 
-        // Return to the Access tab
         OpenAcess();
     }
 
