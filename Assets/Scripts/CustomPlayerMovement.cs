@@ -29,6 +29,11 @@ public class CustomPlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!controller.enabled)
+        {
+            return;
+        }
+
         if (MouseLook.CanMove == false)
             return;
 
