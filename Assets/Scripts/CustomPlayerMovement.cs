@@ -67,16 +67,16 @@ public class CustomPlayerMovement : MonoBehaviour
         if (Keyboard.current != null)
         {
             if (Keyboard.current.aKey.isPressed)
-                x = -1;
+                x -= 1f;
 
             if (Keyboard.current.dKey.isPressed)
-                x = 1;
+                x += 1f;
 
             if (Keyboard.current.wKey.isPressed)
-                z = 1;
+                z += 1f;
 
             if (Keyboard.current.sKey.isPressed)
-                z = -1;
+                z -= 1f;
         }
 
         // PS5 controller movement
@@ -85,12 +85,18 @@ public class CustomPlayerMovement : MonoBehaviour
             Vector2 leftStick =
                 Gamepad.current.leftStick.ReadValue();
 
-            x = leftStick.x;
-            z = leftStick.y;
+            // Only use controller movement
+            // if the stick is actually being moved
+            if (leftStick.magnitude > 0.1f)
+            {
+                x = leftStick.x;
+                z = leftStick.y;
+            }
         }
 
-        bool moving = Mathf.Abs(x) > 0.1f ||
-                      Mathf.Abs(z) > 0.1f;
+        bool moving =
+            Mathf.Abs(x) > 0.1f ||
+            Mathf.Abs(z) > 0.1f;
 
         bool sprintPressed = false;
         bool crouchPressed = false;
@@ -99,33 +105,42 @@ public class CustomPlayerMovement : MonoBehaviour
         if (Keyboard.current != null)
         {
             if (Keyboard.current.leftShiftKey.isPressed)
+            {
                 sprintPressed = true;
+            }
 
             if (Keyboard.current.leftCtrlKey.isPressed)
+            {
                 crouchPressed = true;
+            }
         }
 
-        // PS5 buttons
+        // PS5 controller buttons
         if (Gamepad.current != null)
         {
             // L3
             if (Gamepad.current.leftStickButton.isPressed)
+            {
                 sprintPressed = true;
+            }
 
             // Circle
             if (Gamepad.current.buttonEast.isPressed)
+            {
                 crouchPressed = true;
+            }
         }
 
         bool sprinting = false;
 
-        // Exhausted
-        if (stamina <= 0)
+        // Become exhausted when stamina reaches 0
+        if (stamina <= 0f)
         {
             exhausted = true;
         }
 
-        if (stamina >= 20)
+        // Allow sprint again after stamina reaches 20
+        if (stamina >= 20f)
         {
             exhausted = false;
         }
@@ -148,7 +163,7 @@ public class CustomPlayerMovement : MonoBehaviour
 
         stamina = Mathf.Clamp(
             stamina,
-            0,
+            0f,
             maxStamina
         );
 
@@ -157,19 +172,21 @@ public class CustomPlayerMovement : MonoBehaviour
         // Sprint FOV
         if (sprinting)
         {
-            cameraObject.fieldOfView = Mathf.Lerp(
-                cameraObject.fieldOfView,
-                sprintFOV,
-                fovSpeed * Time.deltaTime
-            );
+            cameraObject.fieldOfView =
+                Mathf.Lerp(
+                    cameraObject.fieldOfView,
+                    sprintFOV,
+                    fovSpeed * Time.deltaTime
+                );
         }
         else
         {
-            cameraObject.fieldOfView = Mathf.Lerp(
-                cameraObject.fieldOfView,
-                normalFOV,
-                fovSpeed * Time.deltaTime
-            );
+            cameraObject.fieldOfView =
+                Mathf.Lerp(
+                    cameraObject.fieldOfView,
+                    normalFOV,
+                    fovSpeed * Time.deltaTime
+                );
         }
 
         // Crouch
@@ -184,18 +201,22 @@ public class CustomPlayerMovement : MonoBehaviour
 
             cameraPos.y = crouchCameraHeight;
 
-            playerCamera.localPosition = cameraPos;
+            playerCamera.localPosition =
+                cameraPos;
         }
         else
         {
-            controller.height = normalPlayerHeight;
+            controller.height =
+                normalPlayerHeight;
 
             Vector3 cameraPos =
                 playerCamera.localPosition;
 
-            cameraPos.y = normalCameraHeight;
+            cameraPos.y =
+                normalCameraHeight;
 
-            playerCamera.localPosition = cameraPos;
+            playerCamera.localPosition =
+                cameraPos;
         }
 
         // Movement
@@ -203,20 +224,26 @@ public class CustomPlayerMovement : MonoBehaviour
             transform.right * x +
             transform.forward * z;
 
-        move = Vector3.ClampMagnitude(move, 1f);
+        move = Vector3.ClampMagnitude(
+            move,
+            1f
+        );
 
         controller.Move(
-            move * moveSpeed * Time.deltaTime
+            move *
+            moveSpeed *
+            Time.deltaTime
         );
 
         // Gravity
         if (controller.isGrounded &&
-            yVelocity < 0)
+            yVelocity < 0f)
         {
             yVelocity = -2f;
         }
 
-        yVelocity += gravity * Time.deltaTime;
+        yVelocity +=
+            gravity * Time.deltaTime;
 
         controller.Move(
             Vector3.up *
