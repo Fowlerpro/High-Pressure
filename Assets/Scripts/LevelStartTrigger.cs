@@ -9,8 +9,6 @@ public class LevelStartTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             enemy.ActivateEnemy();
-
-            gameObject.SetActive(false);
         }
     }
 }

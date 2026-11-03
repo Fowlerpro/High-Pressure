@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 
 public class StalkerEnemy : MonoBehaviour
 {
@@ -12,10 +11,16 @@ public class StalkerEnemy : MonoBehaviour
 
     NavMeshAgent agent;
 
+    Vector3 startPosition;
+    Quaternion startRotation;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = moveSpeed;
+
+        startPosition = transform.position;
+        startRotation = transform.rotation;
     }
 
     void Update()
@@ -63,13 +68,26 @@ public class StalkerEnemy : MonoBehaviour
         return false;
     }
 
+    public void ResetEnemy()
+    {
+        agent.Warp(startPosition);
+
+        transform.rotation = startRotation;
+
+        agent.isStopped = false;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(
-                SceneManager.GetActiveScene().name
-            );
+            PlayerRespawn respawn =
+                other.GetComponent<PlayerRespawn>();
+
+            if (respawn != null)
+            {
+                respawn.Respawn();
+            }
         }
     }
 }
