@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class ComputerInteract : MonoBehaviour
@@ -10,6 +9,7 @@ public class ComputerInteract : MonoBehaviour
 
     private bool playerNearby = false;
     private bool usingComputer = false;
+    private bool canInteract = true;
 
     private CharacterController playerController;
 
@@ -29,9 +29,11 @@ public class ComputerInteract : MonoBehaviour
 
     void Update()
     {
-        if (playerNearby && !usingComputer && Input.GetMouseButtonDown(0))
+        // Enter computer
+        if (playerNearby && canInteract && !usingComputer && Input.GetMouseButtonDown(0))
         {
             usingComputer = true;
+            canInteract = false;
 
             pcPOV.gameObject.SetActive(true);
             pcScreen.SetActive(true);
@@ -44,7 +46,8 @@ public class ComputerInteract : MonoBehaviour
             playerController.enabled = false;
         }
 
-        if (usingComputer && Input.GetKeyDown(KeyCode.Escape))
+        // Exit computer
+        if (usingComputer && Input.GetMouseButtonDown(1))
         {
             usingComputer = false;
 
@@ -73,7 +76,9 @@ public class ComputerInteract : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = false;
+
+            // Allow interaction again after leaving the collider
+            canInteract = true;
         }
     }
 }
-

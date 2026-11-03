@@ -35,7 +35,7 @@ public class TerminalInteract : MonoBehaviour
             OpenTerminal();
         }
 
-        if (usingTerminal && Input.GetKeyDown(KeyCode.Escape))
+        if (usingTerminal && Input.GetMouseButtonDown(1))
         {
             CloseTerminal();
         }
