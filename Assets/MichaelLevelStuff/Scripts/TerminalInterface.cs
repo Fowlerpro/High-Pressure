@@ -15,6 +15,8 @@ public class TerminalInterface : MonoBehaviour
 
     public DoorController doorControl;
 
+    public Animator terminalAnimator;
+
     void Start()
     {
         incorrectPanel.SetActive(false);
@@ -62,10 +64,17 @@ public class TerminalInterface : MonoBehaviour
         UpdateDisplay();
     }
 
-    void SubmitCode()
+    public void SubmitCode()
     {
+        terminalAnimator.SetTrigger("EnterCode");
+
         if (enteredCode.Length != 4)
         {
+            if (enteredCode.Length == 0)
+            {
+                ShowFeedback(incorrectPanel);
+            }
+
             return;
         }
 
