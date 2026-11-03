@@ -32,9 +32,14 @@ public class AccessCodeDisplay : MonoBehaviour
 
     void GenerateCode()
     {
-        int code = Random.Range(0, 10000);
+        CurrentCode = "";
 
-        CurrentCode = code.ToString("D4");
+        for (int i = 0; i < 4; i++)
+        {
+            int digit = Random.Range(1, 10);
+            CurrentCode += digit.ToString();
+        }
+
         codeText.text = CurrentCode;
     }
 
