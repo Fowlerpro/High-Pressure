@@ -23,22 +23,25 @@ public class TerminalInteract : MonoBehaviour
 
         if (terminalDial != null)
         {
-            terminalScreen.SetActive(false);
+            terminalDial.SetActive(false);
         }
     }
 
     void Update()
     {
-        if (playerNearby && !usingTerminal &&
-            Input.GetMouseButtonDown(0))
-        {
-            OpenTerminal();
-        }
-
         if (usingTerminal && Input.GetMouseButtonDown(1))
         {
             CloseTerminal();
         }
+    }
+    public void Interact()
+    {
+        if (usingTerminal)
+        {
+            return;
+        }
+
+        OpenTerminal();
     }
 
     void OnTriggerEnter(Collider other)
@@ -86,6 +89,8 @@ public class TerminalInteract : MonoBehaviour
     void CloseTerminal()
     {
         usingTerminal = false;
+
+        FindAnyObjectByType<PlayerInteraction>().EndInteraction();
 
         TerminalCamera.enabled = false;
         playerCamera.enabled = true;

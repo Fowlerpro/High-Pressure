@@ -29,27 +29,12 @@ public class ComputerInteract : MonoBehaviour
 
     void Update()
     {
-        // Enter computer
-        if (playerNearby && canInteract && !usingComputer && Input.GetMouseButtonDown(0))
-        {
-            usingComputer = true;
-            canInteract = false;
-
-            pcPOV.gameObject.SetActive(true);
-            pcScreen.SetActive(true);
-            scannerScreen.SetActive(true);
-
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-
-            // Stop the player from moving
-            playerController.enabled = false;
-        }
-
         // Exit computer
         if (usingComputer && Input.GetMouseButtonDown(1))
         {
             usingComputer = false;
+
+            FindAnyObjectByType<PlayerInteraction>().EndInteraction();
 
             pcPOV.gameObject.SetActive(false);
             pcScreen.SetActive(false);
@@ -61,6 +46,26 @@ public class ComputerInteract : MonoBehaviour
             // Allow the player to move again
             playerController.enabled = true;
         }
+    }
+    public void Interact()
+    {
+        if (usingComputer || !canInteract)
+        {
+            return;
+        }
+
+        usingComputer = true;
+        canInteract = false;
+
+        pcPOV.gameObject.SetActive(true);
+        pcScreen.SetActive(true);
+        scannerScreen.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // Stop the player from moving
+        playerController.enabled = false;
     }
 
     void OnTriggerEnter(Collider other)
