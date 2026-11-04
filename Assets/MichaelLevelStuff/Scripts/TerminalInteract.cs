@@ -7,8 +7,8 @@ public class TerminalInteract : MonoBehaviour
 
     public MonoBehaviour playerMovement;
     public GameObject terminalScreen;
+    public GameObject terminalDial;
 
-    private bool playerNearby = false;
     private bool usingTerminal = false;
 
     void Start()
@@ -19,36 +19,28 @@ public class TerminalInteract : MonoBehaviour
         {
             terminalScreen.SetActive(false);
         }
+
+        if (terminalDial != null)
+        {
+            terminalDial.SetActive(false);
+        }
     }
 
     void Update()
     {
-        if (playerNearby && !usingTerminal &&
-            Input.GetMouseButtonDown(0))
-        {
-            OpenTerminal();
-        }
-
-        if (usingTerminal && Input.GetKeyDown(KeyCode.Escape))
+        if (usingTerminal && Input.GetMouseButtonDown(1))
         {
             CloseTerminal();
         }
     }
-
-    void OnTriggerEnter(Collider other)
+    public void Interact()
     {
-        if (other.CompareTag("Player"))
+        if (usingTerminal)
         {
-            playerNearby = true;
+            return;
         }
-    }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerNearby = false;
-        }
+        OpenTerminal();
     }
 
     void OpenTerminal()
@@ -68,6 +60,11 @@ public class TerminalInteract : MonoBehaviour
             terminalScreen.SetActive(true);
         }
 
+        if (terminalDial != null)
+        {
+            terminalDial.SetActive(true);
+        }
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -75,6 +72,8 @@ public class TerminalInteract : MonoBehaviour
     void CloseTerminal()
     {
         usingTerminal = false;
+
+        FindAnyObjectByType<PlayerInteraction>().EndInteraction();
 
         TerminalCamera.enabled = false;
         playerCamera.enabled = true;
@@ -87,6 +86,11 @@ public class TerminalInteract : MonoBehaviour
         if (terminalScreen != null)
         {
             terminalScreen.SetActive(false);
+        }
+
+        if (terminalDial != null)
+        {
+            terminalDial.SetActive(false);
         }
 
         Cursor.lockState = CursorLockMode.Locked;

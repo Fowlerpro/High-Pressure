@@ -1,13 +1,12 @@
-
 using UnityEngine;
 
 public class ComputerInteract : MonoBehaviour
 {
     public Camera pcPOV;
     public GameObject pcScreen;
+    public GameObject scannerScreen;
     public GameObject player;
 
-    private bool playerNearby = false;
     private bool usingComputer = false;
 
     private CharacterController playerController;
@@ -19,6 +18,7 @@ public class ComputerInteract : MonoBehaviour
 
         pcPOV.gameObject.SetActive(false);
         pcScreen.SetActive(false);
+        scannerScreen.SetActive(false);
 
         // Hide and lock the mouse during normal gameplay
         Cursor.lockState = CursorLockMode.Locked;
@@ -27,26 +27,16 @@ public class ComputerInteract : MonoBehaviour
 
     void Update()
     {
-        if (playerNearby && !usingComputer && Input.GetMouseButtonDown(0))
-        {
-            usingComputer = true;
-
-            pcPOV.gameObject.SetActive(true);
-            pcScreen.SetActive(true);
-
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-
-            // Stop the player from moving
-            playerController.enabled = false;
-        }
-
-        if (usingComputer && Input.GetKeyDown(KeyCode.Escape))
+        // Exit computer
+        if (usingComputer && Input.GetMouseButtonDown(1))
         {
             usingComputer = false;
 
+            FindAnyObjectByType<PlayerInteraction>().EndInteraction();
+
             pcPOV.gameObject.SetActive(false);
             pcScreen.SetActive(false);
+            scannerScreen.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -55,21 +45,23 @@ public class ComputerInteract : MonoBehaviour
             playerController.enabled = true;
         }
     }
-
-    void OnTriggerEnter(Collider other)
+    public void Interact()
     {
-        if (other.CompareTag("Player"))
+        if (usingComputer)
         {
-            playerNearby = true;
+            return;
         }
-    }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerNearby = false;
-        }
+        usingComputer = true;
+
+        pcPOV.gameObject.SetActive(true);
+        pcScreen.SetActive(true);
+        scannerScreen.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // Stop the player from moving
+        playerController.enabled = false;
     }
 }
-
