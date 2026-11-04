@@ -10,7 +10,7 @@ public class MouseLook : MonoBehaviour
 
     float xRotation = 0f;
 
-    public static bool CanMove = false;
+    public static bool CanMove = true;
 
     void Update()
     {
