@@ -1,75 +1,106 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class AIManager : MonoBehaviour
 {
     public Transform player;
 
-    public float chaseDistance = 10f;
-    public float attackDistance = 2f;
-    public float moveSpeed = 3f;
+    public float normalSpeed = 3f;
+    public float aggressiveSpeed = 8f;
 
     NavMeshAgent agent;
 
-    enum EnemyState
-    {
-        Idle,
-        Chase,
-        Attack
-    }
+    bool active = false;
 
-    EnemyState currentState;
+    Coroutine aggressiveCoroutine;
+
+    Vector3 startPosition;
+    Quaternion startRotation;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
 
-        agent.speed = moveSpeed;
-        agent.stoppingDistance = attackDistance;
+        agent.speed = normalSpeed;
+        agent.isStopped = true;
 
-        currentState = EnemyState.Idle;
+        startPosition = transform.position;
+        startRotation = transform.rotation;
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, player.position);
-
-        if (distance <= attackDistance)
-        {
-            currentState = EnemyState.Attack;
-        }
-        else if (distance <= chaseDistance)
-        {
-            currentState = EnemyState.Chase;
-        }
-        else
-        {
-            currentState = EnemyState.Idle;
-        }
-
-        if (currentState == EnemyState.Idle)
-        {
-            agent.isStopped = true;
-        }
-
-        if (currentState == EnemyState.Chase)
+        if (active)
         {
             agent.isStopped = false;
+
             agent.SetDestination(player.position);
         }
+    }
 
-        if (currentState == EnemyState.Attack)
+    public void ActivateEnemy()
+    {
+        active = true;
+
+        agent.isStopped = false;
+        agent.speed = normalSpeed;
+
+        Debug.Log("Enemy 2 activated");
+    }
+
+    public void BecomeAggressive()
+    {
+        active = true;
+
+        if (aggressiveCoroutine != null)
         {
-            agent.isStopped = true;
+            StopCoroutine(aggressiveCoroutine);
         }
+
+        aggressiveCoroutine = StartCoroutine(AggressiveTime());
+    }
+
+    IEnumerator AggressiveTime()
+    {
+        agent.speed = aggressiveSpeed;
+
+        yield return new WaitForSeconds(10f);
+
+        agent.speed = normalSpeed;
+
+        aggressiveCoroutine = null;
+    }
+
+    public void ResetEnemy()
+    {
+        if (aggressiveCoroutine != null)
+        {
+            StopCoroutine(aggressiveCoroutine);
+            aggressiveCoroutine = null;
+        }
+
+        agent.Warp(startPosition);
+
+        transform.rotation = startRotation;
+
+        agent.speed = normalSpeed;
+
+        active = false;
+        agent.isStopped = true;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            PlayerRespawn respawn =
+                other.GetComponent<PlayerRespawn>();
+
+            if (respawn != null)
+            {
+                respawn.Respawn();
+            }
         }
     }
 }
