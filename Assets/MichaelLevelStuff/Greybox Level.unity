@@ -18449,6 +18449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winPanel: {fileID: 102297766}
+  playerMovement: {fileID: 2092643387}
+  playerLook: {fileID: 1979432473}
 --- !u!1 &393085965
 GameObject:
   m_ObjectHideFlags: 0
@@ -102964,8 +102966,8 @@ GameObject:
   - component: {fileID: 1979432472}
   - component: {fileID: 1979432476}
   - component: {fileID: 1979432475}
-  - component: {fileID: 1979432474}
   - component: {fileID: 1979432473}
+  - component: {fileID: 1979432474}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -110125,7 +110127,7 @@ Transform:
   m_GameObject: {fileID: 2092643385}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.67577744, z: -0, w: 0.7371057}
-  m_LocalPosition: {x: 7.92, y: 0.98, z: -77.78}
+  m_LocalPosition: {x: 13.9, y: 0.98, z: -9.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
