@@ -70,11 +70,8 @@ public class TerminalInterface : MonoBehaviour
 
         if (enteredCode.Length != 4)
         {
-            if (enteredCode.Length == 0)
-            {
-                ShowFeedback(incorrectPanel);
-            }
-
+            ShowFeedback(incorrectPanel);
+            ClearCode();
             return;
         }
 

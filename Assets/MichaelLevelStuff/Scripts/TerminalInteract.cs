@@ -9,7 +9,6 @@ public class TerminalInteract : MonoBehaviour
     public GameObject terminalScreen;
     public GameObject terminalDial;
 
-    private bool playerNearby = false;
     private bool usingTerminal = false;
 
     void Start()
@@ -42,22 +41,6 @@ public class TerminalInteract : MonoBehaviour
         }
 
         OpenTerminal();
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerNearby = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerNearby = false;
-        }
     }
 
     void OpenTerminal()

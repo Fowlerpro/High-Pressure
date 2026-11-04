@@ -7,9 +7,7 @@ public class ComputerInteract : MonoBehaviour
     public GameObject scannerScreen;
     public GameObject player;
 
-    private bool playerNearby = false;
     private bool usingComputer = false;
-    private bool canInteract = true;
 
     private CharacterController playerController;
 
@@ -49,13 +47,12 @@ public class ComputerInteract : MonoBehaviour
     }
     public void Interact()
     {
-        if (usingComputer || !canInteract)
+        if (usingComputer)
         {
             return;
         }
 
         usingComputer = true;
-        canInteract = false;
 
         pcPOV.gameObject.SetActive(true);
         pcScreen.SetActive(true);
@@ -66,24 +63,5 @@ public class ComputerInteract : MonoBehaviour
 
         // Stop the player from moving
         playerController.enabled = false;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerNearby = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerNearby = false;
-
-            // Allow interaction again after leaving the collider
-            canInteract = true;
-        }
     }
 }
