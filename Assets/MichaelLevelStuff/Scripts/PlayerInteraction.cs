@@ -16,7 +16,6 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        // Don't raycast while using a computer or terminal
         if (isInteracting)
         {
             return;
@@ -50,9 +49,12 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentInteractable.SendMessage("Interact");
 
-            // Hide the reticle only if an interaction actually started
-            isInteracting = true;
-            reticle.gameObject.SetActive(false);
+            //For stall door specifically
+            if (!currentInteractable.GetComponent<StallDoorInteract>())
+            {
+                isInteracting = true;
+                reticle.gameObject.SetActive(false);
+            }
         }
     }
 
