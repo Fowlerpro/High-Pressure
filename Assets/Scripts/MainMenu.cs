@@ -1,37 +1,36 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject menuCanvas;
     public GameObject controlsPanel;
 
     void Start()
     {
-        Time.timeScale = 0f;
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        MouseLook.CanMove = false;
+        Time.timeScale = 1f;
 
-        controlsPanel.SetActive(false);
+        if (controlsPanel != null)
+        {
+            controlsPanel.SetActive(false);
+        }
     }
 
     public void StartGame()
     {
-        menuCanvas.SetActive(false);
-
-        Time.timeScale = 1f;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        MouseLook.CanMove = true;
+        SceneManager.LoadScene("Greybox Level");
     }
 
     public void ShowControls()
     {
         controlsPanel.SetActive(true);
+    }
+
+    public void HideControls()
+    {
+        controlsPanel.SetActive(false);
     }
 
     public void QuitGame()
