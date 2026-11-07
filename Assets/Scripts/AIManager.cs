@@ -22,11 +22,11 @@ public class AIManager : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
-        agent.speed = normalSpeed;
-        agent.isStopped = true;
-
         startPosition = transform.position;
         startRotation = transform.rotation;
+
+        agent.speed = normalSpeed;
+        agent.isStopped = true;
     }
 
     void Update()
@@ -34,7 +34,6 @@ public class AIManager : MonoBehaviour
         if (active)
         {
             agent.isStopped = false;
-
             agent.SetDestination(player.position);
         }
     }
@@ -43,10 +42,8 @@ public class AIManager : MonoBehaviour
     {
         active = true;
 
-        agent.isStopped = false;
         agent.speed = normalSpeed;
-
-        Debug.Log("Enemy 2 activated");
+        agent.isStopped = false;
     }
 
     public void BecomeAggressive()
@@ -58,7 +55,8 @@ public class AIManager : MonoBehaviour
             StopCoroutine(aggressiveCoroutine);
         }
 
-        aggressiveCoroutine = StartCoroutine(AggressiveTime());
+        aggressiveCoroutine =
+            StartCoroutine(AggressiveTime());
     }
 
     IEnumerator AggressiveTime()
@@ -80,13 +78,16 @@ public class AIManager : MonoBehaviour
             aggressiveCoroutine = null;
         }
 
+        active = false;
+
+        agent.isStopped = true;
+        agent.ResetPath();
+
         agent.Warp(startPosition);
 
         transform.rotation = startRotation;
 
         agent.speed = normalSpeed;
-
-        active = false;
         agent.isStopped = true;
     }
 

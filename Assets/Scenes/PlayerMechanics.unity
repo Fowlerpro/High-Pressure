@@ -51148,9 +51148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpawn: {fileID: 1718064011}
-  level2Spawn: {fileID: 0}
-  stalkerEnemy: {fileID: 1401466665}
-  enemy2: {fileID: 399486429}
+  level1Spawn: {fileID: 1928125147}
+  level2Spawn: {fileID: 775872659}
+  enemyLevel1: {fileID: 982547426}
+  enemyLevel2: {fileID: 399486429}
 --- !u!1 &1423946714
 GameObject:
   m_ObjectHideFlags: 0
