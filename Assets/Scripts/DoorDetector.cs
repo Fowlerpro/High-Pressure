@@ -14,6 +14,8 @@ public class DoorDetector : MonoBehaviour
             someoneNear = true;
 
             doorAnimator.SetTrigger("OpenDoor");
+
+            Debug.Log("Something entered door trigger: " + other.name);
         }
     }
 
@@ -25,6 +27,8 @@ public class DoorDetector : MonoBehaviour
             someoneNear = false;
 
             doorAnimator.SetTrigger("CloseDoor");
+
+            Debug.Log("Something exited door trigger: " + other.name);
         }
     }
 }

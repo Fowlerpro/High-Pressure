@@ -2979,6 +2979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -5596,6 +5600,10 @@ PrefabInstance:
     - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: m_Name
       value: DoorPrefab (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
@@ -15571,7 +15579,7 @@ RectTransform:
   m_GameObject: {fileID: 282448930}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.44623616, y: 0.45199, z: 0.45199}
+  m_LocalScale: {x: 5, y: 5, z: 0.45199}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 509806675}
@@ -15581,7 +15589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -508.9, y: -245.8}
+  m_AnchoredPosition: {x: -531.45, y: -493.8}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282448932
@@ -18320,6 +18328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -18759,6 +18771,10 @@ PrefabInstance:
     - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: m_Name
       value: DoorPrefab (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
@@ -31203,6 +31219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -37171,6 +37191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -42503,6 +42527,10 @@ PrefabInstance:
     - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: m_Name
       value: DoorPrefab (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
@@ -55711,6 +55739,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -66544,6 +66576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -72044,6 +72080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -76257,7 +76297,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 71a4b6a24e4dfda458adafbde9c53d8b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c4060bdd2c63ea544ab3a88ea54676bd, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1202620540
 Transform:
@@ -84109,6 +84149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -87154,6 +87198,10 @@ PrefabInstance:
     - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: m_Name
       value: DoorPrefab (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
@@ -100558,6 +100606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -105436,6 +105488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -107589,6 +107645,10 @@ PrefabInstance:
     - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: m_Name
       value: DoorPrefab (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
@@ -111499,6 +111559,7 @@ GameObject:
   - component: {fileID: 1775807726}
   - component: {fileID: 1775807725}
   - component: {fileID: 1775807724}
+  - component: {fileID: 1775807730}
   m_Layer: 0
   m_Name: EnemyLevel2
   m_TagString: Enemy
@@ -111530,9 +111591,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 1775807723}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Radius: 0.4
+  m_Speed: 1
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -111634,6 +111695,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 728275045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1775807730
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775807723}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1780259114
 GameObject:
   m_ObjectHideFlags: 0
@@ -116337,6 +116425,10 @@ PrefabInstance:
     - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: m_Name
       value: DoorPrefab (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
@@ -125128,6 +125220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -125202,6 +125298,7 @@ GameObject:
   - component: {fileID: 1985198107}
   - component: {fileID: 1985198106}
   - component: {fileID: 1985198105}
+  - component: {fileID: 1985198111}
   m_Layer: 0
   m_Name: EnemyLevel2(new)
   m_TagString: Enemy
@@ -125233,9 +125330,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 1985198104}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Radius: 0.4
+  m_Speed: 1
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -125337,6 +125434,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 728275045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1985198111
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985198104}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1988681500
 GameObject:
   m_ObjectHideFlags: 0
@@ -125839,6 +125963,10 @@ PrefabInstance:
     - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: m_Name
       value: DoorPrefab (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator
@@ -132564,7 +132692,7 @@ Transform:
   m_GameObject: {fileID: 2092643385}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.67577744, z: -0, w: 0.7371057}
-  m_LocalPosition: {x: 16.65, y: 0.98, z: -7.2}
+  m_LocalPosition: {x: 10.2, y: 0.98, z: -11.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -136182,6 +136310,10 @@ PrefabInstance:
     - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: m_Name
       value: DoorPrefab (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981517792116551540, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6665160278124133761, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
       propertyPath: doorAnimator

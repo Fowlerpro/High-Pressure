@@ -6,8 +6,8 @@ public class AccessCodeDisplay : MonoBehaviour
     public TextMeshProUGUI codeText;
     public TextMeshProUGUI countdownText;
 
-    private float timer = 20f;
-    private float changeTime = 20f;
+    private float timer = 30f;
+    private float changeTime = 30f;
 
     public string CurrentCode { get; private set; }
 
