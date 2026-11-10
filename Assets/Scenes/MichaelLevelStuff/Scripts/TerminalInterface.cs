@@ -77,14 +77,12 @@ public class TerminalInterface : MonoBehaviour
 
         if (enteredCode == accessCodeDisplay.CurrentCode)
         {
-            Debug.Log("Correct");
             ShowFeedback(correctPanel);
 
             doorControl.OpenDoor();
         }
         else
         {
-            Debug.Log("Incorrect");
             ShowFeedback(incorrectPanel);
         }
 

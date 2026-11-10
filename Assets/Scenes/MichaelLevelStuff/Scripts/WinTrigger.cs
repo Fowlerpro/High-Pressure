@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinTrigger : MonoBehaviour
 {
@@ -19,5 +20,9 @@ public class WinTrigger : MonoBehaviour
             playerMovement.enabled = false;
             playerLook.enabled = false;
         }
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
