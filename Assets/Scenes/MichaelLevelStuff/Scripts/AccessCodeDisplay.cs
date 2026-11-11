@@ -11,10 +11,14 @@ public class AccessCodeDisplay : MonoBehaviour
 
     public string CurrentCode { get; private set; }
 
+    // Available symbols for the passcode
+    private string[] symbols = { "@", "#", "$", "%" };
+
     void Start()
     {
         GenerateCode();
         UpdateCountdown();
+        codeText.richText = false;
     }
 
     void Update()
@@ -36,8 +40,8 @@ public class AccessCodeDisplay : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            int digit = Random.Range(1, 10);
-            CurrentCode += digit.ToString();
+            int randomIndex = Random.Range(0, symbols.Length);
+            CurrentCode += symbols[randomIndex];
         }
 
         codeText.text = CurrentCode;
