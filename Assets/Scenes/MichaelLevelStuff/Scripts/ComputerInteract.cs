@@ -3,8 +3,6 @@ using UnityEngine;
 public class ComputerInteract : MonoBehaviour
 {
     public Camera pcPOV;
-    public GameObject pcScreen;
-    public GameObject scannerScreen;
     public GameObject player;
 
     private bool usingComputer = false;
@@ -17,8 +15,6 @@ public class ComputerInteract : MonoBehaviour
         playerController = player.GetComponent<CharacterController>();
 
         pcPOV.gameObject.SetActive(false);
-        pcScreen.SetActive(false);
-        scannerScreen.SetActive(false);
 
         // Hide and lock the mouse during normal gameplay
         Cursor.lockState = CursorLockMode.Locked;
@@ -35,8 +31,6 @@ public class ComputerInteract : MonoBehaviour
             FindAnyObjectByType<PlayerInteraction>().EndInteraction();
 
             pcPOV.gameObject.SetActive(false);
-            pcScreen.SetActive(false);
-            scannerScreen.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -55,8 +49,6 @@ public class ComputerInteract : MonoBehaviour
         usingComputer = true;
 
         pcPOV.gameObject.SetActive(true);
-        pcScreen.SetActive(true);
-        scannerScreen.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

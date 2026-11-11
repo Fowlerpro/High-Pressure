@@ -13097,8 +13097,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcPOV: {fileID: 399487611}
-  pcScreen: {fileID: 1342843444}
-  scannerScreen: {fileID: 373195200}
   player: {fileID: 2092643385}
 --- !u!4 &234256640 stripped
 Transform:
@@ -14899,8 +14897,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcPOV: {fileID: 893188987}
-  pcScreen: {fileID: 1398833003}
-  scannerScreen: {fileID: 446021086}
   player: {fileID: 2092643385}
 --- !u!1 &274116707
 GameObject:
@@ -84096,7 +84092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1342843446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128835,8 +128831,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcPOV: {fileID: 1275993471}
-  pcScreen: {fileID: 1456467375}
-  scannerScreen: {fileID: 836678697}
   player: {fileID: 2092643385}
 --- !u!1 &2095842021
 GameObject:
