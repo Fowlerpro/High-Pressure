@@ -1605,7 +1605,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 138646336}
+  m_TargetGraphic: {fileID: 1625743049}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -3422,7 +3422,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 335741399}
+  m_TargetGraphic: {fileID: 1428206603}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -9253,7 +9253,7 @@ GameObject:
   - component: {fileID: 1120265592}
   - component: {fileID: 1120265591}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StartText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11394,7 +11394,7 @@ GameObject:
   - component: {fileID: 1428206604}
   - component: {fileID: 1428206603}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ControlsButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11600,7 +11600,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1451969646}
+  m_TargetGraphic: {fileID: 1120265591}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -12971,7 +12971,7 @@ GameObject:
   - component: {fileID: 1625743050}
   - component: {fileID: 1625743049}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: QuitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
