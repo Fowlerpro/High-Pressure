@@ -6,24 +6,12 @@ public class TerminalInteract : MonoBehaviour
     public Camera TerminalCamera;
 
     public MonoBehaviour playerMovement;
-    public GameObject terminalScreen;
-    public GameObject terminalDial;
 
     private bool usingTerminal = false;
 
     void Start()
     {
         TerminalCamera.enabled = false;
-
-        if (terminalScreen != null)
-        {
-            terminalScreen.SetActive(false);
-        }
-
-        if (terminalDial != null)
-        {
-            terminalDial.SetActive(false);
-        }
     }
 
     void Update()
@@ -55,16 +43,6 @@ public class TerminalInteract : MonoBehaviour
             playerMovement.enabled = false;
         }
 
-        if (terminalScreen != null)
-        {
-            terminalScreen.SetActive(true);
-        }
-
-        if (terminalDial != null)
-        {
-            terminalDial.SetActive(true);
-        }
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -81,16 +59,6 @@ public class TerminalInteract : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.enabled = true;
-        }
-
-        if (terminalScreen != null)
-        {
-            terminalScreen.SetActive(false);
-        }
-
-        if (terminalDial != null)
-        {
-            terminalDial.SetActive(false);
         }
 
         Cursor.lockState = CursorLockMode.Locked;
