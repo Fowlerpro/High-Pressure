@@ -19854,7 +19854,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 53c658c5d89fe454dad4fc67d1a9142d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7e17bf596a12a243bccdb70b9e008db, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -127966,8 +127966,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1979432476}
   reticle: {fileID: 350072815}
-  normalReticle: {fileID: 21300000, guid: 53c658c5d89fe454dad4fc67d1a9142d, type: 3}
-  interactReticle: {fileID: 21300000, guid: 64f07bef0a873cb43aa654210c9cf89c, type: 3}
+  normalReticle: {fileID: 21300000, guid: d7e17bf596a12a243bccdb70b9e008db, type: 3}
+  interactReticle: {fileID: 21300000, guid: 1f37285f05c73b94aa4b6d6d626c9de4, type: 3}
   interactDistance: 1
 --- !u!114 &2092643393
 MonoBehaviour:
