@@ -19104,11 +19104,11 @@ PrefabInstance:
     - target: {fileID: -6600563403524854609, guid: 7f1bfe9a0635e55468f58d40951725c5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a2cb3f425a4fdcf4fbfdb05fa43306e7, type: 2}
+      objectReference: {fileID: 2100000, guid: 71ebddb88beb9e64d8cacb3bfd9b3b69, type: 2}
     - target: {fileID: -1995234723846032440, guid: 7f1bfe9a0635e55468f58d40951725c5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a2cb3f425a4fdcf4fbfdb05fa43306e7, type: 2}
+      objectReference: {fileID: 2100000, guid: 71ebddb88beb9e64d8cacb3bfd9b3b69, type: 2}
     - target: {fileID: -114364775411708483, guid: 7f1bfe9a0635e55468f58d40951725c5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -27410,7 +27410,6 @@ GameObject:
   - component: {fileID: 456130637}
   - component: {fileID: 456130636}
   - component: {fileID: 456130635}
-  - component: {fileID: 456130638}
   m_Layer: 0
   m_Name: Debris
   m_TagString: Untagged
@@ -27486,27 +27485,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1113576813}
   m_LocalEulerAnglesHint: {x: 0, y: -18.06, z: 22.28}
---- !u!65 &456130638
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456130633}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.0000001, z: 1}
-  m_Center: {x: 0, y: 0, z: -0.00000047683716}
 --- !u!1 &458046265
 GameObject:
   m_ObjectHideFlags: 0
@@ -128326,7 +128304,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092643385}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
