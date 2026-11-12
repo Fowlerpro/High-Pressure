@@ -8632,7 +8632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
       propertyPath: m_TagString
@@ -8733,6 +8733,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 38194839}
   playerMovement: {fileID: 2092643387}
+  begonUnityButtons: {fileID: 0}
 --- !u!65 &165767356
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10146,7 +10147,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0000
+  m_text: '****'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10173,8 +10174,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 201.3
-  m_fontSizeBase: 201.3
+  m_fontSize: 159.36
+  m_fontSizeBase: 159.36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11914,7 +11915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
       propertyPath: m_TagString
@@ -12015,6 +12016,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 601278877}
   playerMovement: {fileID: 2092643387}
+  begonUnityButtons: {fileID: 0}
 --- !u!65 &207913165
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15765,6 +15767,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1b42c66872a3ab944ba4e8335f75f929, type: 3}
       propertyPath: m_Name
       value: StandardComputerCaf
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1b42c66872a3ab944ba4e8335f75f929, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1b42c66872a3ab944ba4e8335f75f929, type: 3}
       propertyPath: m_TagString
@@ -22167,6 +22173,7 @@ GameObject:
   - component: {fileID: 373195204}
   - component: {fileID: 373195203}
   - component: {fileID: 373195202}
+  - component: {fileID: 373195205}
   m_Layer: 5
   m_Name: ScanCanvas
   m_TagString: Untagged
@@ -22258,6 +22265,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &373195205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373195200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877882a77cf513d459565af667b4cef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  computerScreen: {fileID: 1342843446}
+  armAnimator: {fileID: 134226177}
+  scannerDone: {fileID: 1249180839}
+  scannerIdle: {fileID: 491394485}
+  scannerDoing: {fileID: 1630486452}
+  loadingBar: {fileID: 1717073896}
+  scanTime: 2
 --- !u!1 &374095078
 GameObject:
   m_ObjectHideFlags: 0
@@ -31542,7 +31568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -28.1}
+  m_AnchoredPosition: {x: 22, y: -4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491394487
@@ -31565,7 +31591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Please Scan
+  m_text: Hold E To Scan
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -31631,7 +31657,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -15.43103, y: 0, z: 0, w: 0}
+  m_margin: {x: -15.43103, y: 0, z: -64.0722, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -35353,6 +35379,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 776114121}
   playerMovement: {fileID: 2092643387}
+  begonUnityButtons: {fileID: 1704449915}
 --- !u!1 &541511999
 GameObject:
   m_ObjectHideFlags: 0
@@ -38192,6 +38219,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1342843446}
         m_TargetAssemblyTypeName: CompterScreen, Assembly-CSharp
         m_MethodName: Logout
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 373195205}
+        m_TargetAssemblyTypeName: ScannerButton, Assembly-CSharp
+        m_MethodName: ReturnToIdle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -42193,6 +42232,10 @@ PrefabInstance:
       value: QuartersTerminal1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
       propertyPath: m_TagString
       value: Interactable
       objectReference: {fileID: 0}
@@ -42334,6 +42377,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 1230022342}
   playerMovement: {fileID: 2092643387}
+  begonUnityButtons: {fileID: 0}
 --- !u!65 &647027800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -90463,7 +90507,7 @@ MonoBehaviour:
   message3: {fileID: 1244648207}
   file1: {fileID: 990147205}
   file2: {fileID: 1385038324}
-  scannerButton: {fileID: 1991540267}
+  scannerButton: {fileID: 373195205}
 --- !u!114 &1342843447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90518,7 +90562,6 @@ RectTransform:
   - {fileID: 508485240}
   - {fileID: 890869502}
   - {fileID: 1162868931}
-  - {fileID: 1991540266}
   - {fileID: 1376194638}
   - {fileID: 876822989}
   - {fileID: 385004044}
@@ -123309,6 +123352,10 @@ PrefabInstance:
       value: CafeteriaTerminal1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
       propertyPath: m_TagString
       value: Interactable
       objectReference: {fileID: 0}
@@ -123450,6 +123497,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 1054639439}
   playerMovement: {fileID: 2092643387}
+  begonUnityButtons: {fileID: 0}
 --- !u!65 &1870172094
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -132327,146 +132375,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3080327844024595590, guid: 88fa13a782bd9c14a9352bc5955441f8, type: 3}
   m_PrefabInstance: {fileID: 1990872849}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1991540265
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1991540266}
-  - component: {fileID: 1991540270}
-  - component: {fileID: 1991540269}
-  - component: {fileID: 1991540268}
-  - component: {fileID: 1991540267}
-  m_Layer: 5
-  m_Name: ScannerButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1991540266
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991540265}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.339}
-  m_LocalScale: {x: 2.71, y: 11.51, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1342843449}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -954, y: -348}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1991540267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991540265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877882a77cf513d459565af667b4cef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  computerScreen: {fileID: 1342843446}
-  armAnimator: {fileID: 134226177}
-  scannerDone: {fileID: 1249180839}
-  scannerIdle: {fileID: 491394485}
-  scannerDoing: {fileID: 1630486452}
-  loadingBar: {fileID: 1717073896}
-  scanTime: 3
---- !u!114 &1991540268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991540265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1991540269}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1991540269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991540265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1991540270
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991540265}
-  m_CullTransparentMesh: 1
 --- !u!1 &1992728179
 GameObject:
   m_ObjectHideFlags: 0
@@ -139854,6 +139762,8 @@ MonoBehaviour:
   level2Spawn: {fileID: 1319867699}
   enemyLevel1: {fileID: 1985198105}
   enemyLevel2: {fileID: 1775807724}
+  terminalInteract: {fileID: 541308231}
+  computerInteract: {fileID: 234256638}
 --- !u!1 &2092662119
 GameObject:
   m_ObjectHideFlags: 0
@@ -140173,6 +140083,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1b42c66872a3ab944ba4e8335f75f929, type: 3}
       propertyPath: m_Name
       value: StandardComputerQuarters
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1b42c66872a3ab944ba4e8335f75f929, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1b42c66872a3ab944ba4e8335f75f929, type: 3}
       propertyPath: m_TagString

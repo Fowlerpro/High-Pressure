@@ -6,17 +6,20 @@ public class TerminalInteract : MonoBehaviour
     public Camera TerminalCamera;
 
     public MonoBehaviour playerMovement;
+    public GameObject begonUnityButtons;
 
     private bool usingTerminal = false;
 
     void Start()
     {
         TerminalCamera.enabled = false;
+
+        begonUnityButtons.SetActive(false);
     }
 
     void Update()
     {
-        if (usingTerminal && Input.GetMouseButtonDown(1))
+        if (usingTerminal && Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
         {
             CloseTerminal();
         }
@@ -43,8 +46,11 @@ public class TerminalInteract : MonoBehaviour
             playerMovement.enabled = false;
         }
 
+        begonUnityButtons.SetActive(true);
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        MouseLook.CanMove = false;
     }
 
     void CloseTerminal()
@@ -61,7 +67,19 @@ public class TerminalInteract : MonoBehaviour
             playerMovement.enabled = true;
         }
 
+        begonUnityButtons.SetActive(false);
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        MouseLook.CanMove = true;
+    }
+
+    //Reference for when Jit gets yo ass
+    public void ForceCloseTerminal()
+    {
+        if (usingTerminal)
+        {
+            CloseTerminal();
+        }
     }
 }

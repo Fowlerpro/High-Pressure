@@ -10,6 +10,9 @@ public class PlayerRespawn : MonoBehaviour
     public AIManager enemyLevel1;
     public AIManager enemyLevel2;
 
+    public TerminalInteract terminalInteract;
+    public ComputerInteract computerInteract;
+
     CharacterController controller;
 
     void Start()
@@ -19,6 +22,18 @@ public class PlayerRespawn : MonoBehaviour
 
     public void Respawn()
     {
+        //Reset terminal if it is open
+        if (terminalInteract != null)
+        {
+            terminalInteract.ForceCloseTerminal();
+        }
+
+        //Reset computer if its open
+        if (computerInteract != null)
+        {
+            computerInteract.ForceCloseComputer();
+        }
+
         // Reset BOTH enemies
         if (enemyLevel1 != null)
         {

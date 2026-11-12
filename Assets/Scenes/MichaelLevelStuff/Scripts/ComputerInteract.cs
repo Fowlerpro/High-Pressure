@@ -24,7 +24,7 @@ public class ComputerInteract : MonoBehaviour
     void Update()
     {
         // Exit computer
-        if (usingComputer && Input.GetMouseButtonDown(1))
+        if (usingComputer && Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
         {
             usingComputer = false;
 
@@ -34,6 +34,7 @@ public class ComputerInteract : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            MouseLook.CanMove = true;
 
             // Allow the player to move again
             playerController.enabled = true;
@@ -52,8 +53,29 @@ public class ComputerInteract : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        MouseLook.CanMove = false;
 
         // Stop the player from moving
         playerController.enabled = false;
+    }
+
+    //Reference for Jit if it murks the Player
+    public void ForceCloseComputer()
+    {
+        if (usingComputer)
+        {
+            usingComputer = false;
+
+            FindAnyObjectByType<PlayerInteraction>().EndInteraction();
+
+            pcPOV.gameObject.SetActive(false);
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            MouseLook.CanMove = true;
+
+            playerController.enabled = true;
+        }
     }
 }
