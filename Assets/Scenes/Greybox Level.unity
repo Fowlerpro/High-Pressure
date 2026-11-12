@@ -139762,8 +139762,10 @@ MonoBehaviour:
   level2Spawn: {fileID: 1319867699}
   enemyLevel1: {fileID: 1985198105}
   enemyLevel2: {fileID: 1775807724}
-  terminalInteract: {fileID: 541308231}
-  computerInteract: {fileID: 234256638}
+  terminalInteracts:
+  - {fileID: 541308231}
+  computerInteracts:
+  - {fileID: 234256638}
 --- !u!1 &2092662119
 GameObject:
   m_ObjectHideFlags: 0
