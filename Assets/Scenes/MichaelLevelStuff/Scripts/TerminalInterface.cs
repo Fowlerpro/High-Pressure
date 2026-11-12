@@ -123,4 +123,10 @@ public class TerminalInterface : MonoBehaviour
     {
         enteredCodeText.text = enteredCode.PadRight(4, '_');
     }
+
+    //Terminal button animation trigger stuff
+    public void PressTerminalButton(int buttonNumber)
+    {
+        terminalAnimator.SetTrigger("Button" + buttonNumber + "Pressed");
+    }
 }

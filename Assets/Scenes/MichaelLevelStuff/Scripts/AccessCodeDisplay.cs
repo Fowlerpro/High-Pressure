@@ -6,8 +6,9 @@ public class AccessCodeDisplay : MonoBehaviour
     public TextMeshProUGUI codeText;
     public TextMeshProUGUI countdownText;
 
-    private float timer = 30f;
-    private float changeTime = 30f;
+    public float changeTime = 30f;
+
+    private float timer;
 
     public string CurrentCode { get; private set; }
 
@@ -16,8 +17,11 @@ public class AccessCodeDisplay : MonoBehaviour
 
     void Start()
     {
+        timer = changeTime;
+
         GenerateCode();
         UpdateCountdown();
+
         codeText.richText = false;
     }
 
@@ -27,10 +31,16 @@ public class AccessCodeDisplay : MonoBehaviour
 
         if (timer <= 0f)
         {
-            timer = changeTime;
-            GenerateCode();
+            ResetCode();
         }
 
+        UpdateCountdown();
+    }
+
+    public void ResetCode()
+    {
+        timer = changeTime;
+        GenerateCode();
         UpdateCountdown();
     }
 
