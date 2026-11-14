@@ -90,13 +90,17 @@ public class ComputerNavi : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             MoveSelection(-1);
-            RotateDialLeft();
+
+            if (currentGroupIndex == mainGroupIndex)
+                RotateDialLeft();
         }
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             MoveSelection(1);
-            RotateDialRight();
+
+            if (currentGroupIndex == mainGroupIndex)
+                RotateDialRight();
         }
 
         if (Input.GetKeyDown(KeyCode.D) ||
@@ -293,6 +297,17 @@ public class ComputerNavi : MonoBehaviour
         if (groupIndex < 0 || groupIndex >= navigationGroups.Count)
             return;
 
+        // Check if we're clicking a main navigation tab
+        if (groupIndex == mainGroupIndex)
+        {
+            int previousIndex = savedButtonIndices[mainGroupIndex];
+
+            if (buttonIndex < previousIndex)
+                RotateDialLeft();
+            else if (buttonIndex > previousIndex)
+                RotateDialRight();
+        }
+
         savedButtonIndices[groupIndex] = buttonIndex;
 
         UpdateMainTabHighlight();
@@ -305,11 +320,13 @@ public class ComputerNavi : MonoBehaviour
 
     private void RotateDialLeft()
     {
-        dialAnimator.SetTrigger(rotateLeftTrigger);
+        if (dialAnimator != null)
+            dialAnimator.SetTrigger(rotateLeftTrigger);
     }
 
     private void RotateDialRight()
     {
-        dialAnimator.SetTrigger(rotateRightTrigger);
+        if (dialAnimator != null)
+            dialAnimator.SetTrigger(rotateRightTrigger);
     }
 }
