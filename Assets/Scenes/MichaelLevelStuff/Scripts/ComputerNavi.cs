@@ -18,6 +18,11 @@ public class ComputerNavi : MonoBehaviour
     [Header("Computer Interaction")]
     public Camera pcPOV;
 
+    [Header("Dial Animation")]
+    public Animator dialAnimator;
+    public string rotateLeftTrigger = "RotateLeft";
+    public string rotateRightTrigger = "RotateRight";
+
     [Header("Navigation Settings")]
     public int mainGroupIndex = 0;
 
@@ -83,10 +88,16 @@ public class ComputerNavi : MonoBehaviour
             return;
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
             MoveSelection(-1);
+            RotateDialLeft();
+        }
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
             MoveSelection(1);
+            RotateDialRight();
+        }
 
         if (Input.GetKeyDown(KeyCode.D) ||
             Input.GetKeyDown(KeyCode.RightArrow) ||
@@ -290,5 +301,15 @@ public class ComputerNavi : MonoBehaviour
         {
             UpdateCurrentGroupHighlight();
         }
+    }
+
+    private void RotateDialLeft()
+    {
+        dialAnimator.SetTrigger(rotateLeftTrigger);
+    }
+
+    private void RotateDialRight()
+    {
+        dialAnimator.SetTrigger(rotateRightTrigger);
     }
 }
