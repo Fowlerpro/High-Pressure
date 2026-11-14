@@ -25844,6 +25844,10 @@ MonoBehaviour:
   dialAnimator: {fileID: 234256641}
   rotateLeftTrigger: RotateLeft
   rotateRightTrigger: RotateRight
+  subRotateLeftTrigger: SubRotateLeft
+  subRotateRightTrigger: SubRotateRight
+  RotateSelectTrigger: RotateSelect
+  RotateDeSelectTrigger: RotateDeSelect
   mainGroupIndex: 0
   navigationGroups:
   - groupName: Main Screen
@@ -143437,7 +143441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2133831848
 Transform:
   m_ObjectHideFlags: 0

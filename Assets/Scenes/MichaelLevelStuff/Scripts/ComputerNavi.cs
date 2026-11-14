@@ -22,6 +22,10 @@ public class ComputerNavi : MonoBehaviour
     public Animator dialAnimator;
     public string rotateLeftTrigger = "RotateLeft";
     public string rotateRightTrigger = "RotateRight";
+    public string subRotateLeftTrigger = "SubRotateLeft";
+    public string subRotateRightTrigger = "SubRotateRight";
+    public string RotateSelectTrigger = "RotateSelect";
+    public string RotateDeSelectTrigger = "RotateDeSelect";
 
     [Header("Navigation Settings")]
     public int mainGroupIndex = 0;
@@ -89,28 +93,50 @@ public class ComputerNavi : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
+            int previousIndex = savedButtonIndices[currentGroupIndex];
+
             MoveSelection(-1);
 
-            if (currentGroupIndex == mainGroupIndex)
-                RotateDialLeft();
+            if (savedButtonIndices[currentGroupIndex] != previousIndex)
+            {
+                if (currentGroupIndex == mainGroupIndex)
+                    RotateDialLeft();
+                else
+                    RotateSubDialLeft();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
+            int previousIndex = savedButtonIndices[currentGroupIndex];
+
             MoveSelection(1);
 
-            if (currentGroupIndex == mainGroupIndex)
-                RotateDialRight();
+            if (savedButtonIndices[currentGroupIndex] != previousIndex)
+            {
+                if (currentGroupIndex == mainGroupIndex)
+                    RotateDialRight();
+                else
+                    RotateSubDialRight();
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.D) ||
-            Input.GetKeyDown(KeyCode.RightArrow) ||
-            Input.GetKeyDown(KeyCode.Return) ||
-            Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            RotateThirdDialRight();
             ActivateSelectedButton();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            ActivateSelectedButton();
+        }
 
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            RotateThirdDialLeft();
             GoBack();
+        }
     }
 
     private void DetectActiveGroup()
@@ -297,15 +323,21 @@ public class ComputerNavi : MonoBehaviour
         if (groupIndex < 0 || groupIndex >= navigationGroups.Count)
             return;
 
-        // Check if we're clicking a main navigation tab
-        if (groupIndex == mainGroupIndex)
-        {
-            int previousIndex = savedButtonIndices[mainGroupIndex];
+        int previousIndex = savedButtonIndices[groupIndex];
 
-            if (buttonIndex < previousIndex)
+        if (buttonIndex < previousIndex)
+        {
+            if (groupIndex == mainGroupIndex)
                 RotateDialLeft();
-            else if (buttonIndex > previousIndex)
+            else
+                RotateSubDialLeft();
+        }
+        else if (buttonIndex > previousIndex)
+        {
+            if (groupIndex == mainGroupIndex)
                 RotateDialRight();
+            else
+                RotateSubDialRight();
         }
 
         savedButtonIndices[groupIndex] = buttonIndex;
@@ -328,5 +360,28 @@ public class ComputerNavi : MonoBehaviour
     {
         if (dialAnimator != null)
             dialAnimator.SetTrigger(rotateRightTrigger);
+    }
+
+    private void RotateSubDialLeft()
+    {
+        if (dialAnimator != null)
+            dialAnimator.SetTrigger(subRotateLeftTrigger);
+    }
+
+    private void RotateSubDialRight()
+    {
+        if (dialAnimator != null)
+            dialAnimator.SetTrigger(subRotateRightTrigger);
+    }
+    private void RotateThirdDialRight()
+    {
+        if (dialAnimator != null)
+            dialAnimator.SetTrigger(RotateSelectTrigger);
+    }
+
+    private void RotateThirdDialLeft()
+    {
+        if (dialAnimator != null)
+            dialAnimator.SetTrigger(RotateDeSelectTrigger);
     }
 }
