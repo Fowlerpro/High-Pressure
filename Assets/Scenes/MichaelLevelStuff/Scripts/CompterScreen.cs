@@ -137,19 +137,6 @@ public class CompterScreen : MonoBehaviour
         message3.SetActive(false);
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            messagesScreen.SetActive(false);
-            filesScreen.SetActive(false);
-            accessScreen.SetActive(false);
-            loggedInScreen.SetActive(false);
-            restrictedScreen.SetActive(false);
-
-            CloseMessages();
-        }
-    }
     public void OpenFile1()
     {
         CloseFiles();

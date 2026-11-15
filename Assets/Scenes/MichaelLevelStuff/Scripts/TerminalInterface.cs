@@ -21,20 +21,27 @@ public class TerminalInterface : MonoBehaviour
     {
         incorrectPanel.SetActive(false);
         correctPanel.SetActive(false);
+
+        // Display symbols as normal text
+        enteredCodeText.richText = false;
     }
 
     void Update()
     {
+        // Arrow keys represent the four symbols
         if (enteredCode.Length < 4)
         {
-            for (int i = 0; i <= 9; i++)
-            {
-                if (Input.GetKeyDown(KeyCode.Alpha0 + i) ||
-                    Input.GetKeyDown(KeyCode.Keypad0 + i))
-                {
-                    PressNumber(i.ToString());
-                }
-            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+                PressSymbol("@");
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                PressSymbol("#");
+
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+                PressSymbol("$");
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+                PressSymbol("%");
         }
 
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -49,11 +56,11 @@ public class TerminalInterface : MonoBehaviour
         }
     }
 
-    public void PressNumber(string number)
+    public void PressSymbol(string symbol)
     {
         if (enteredCode.Length < 4)
         {
-            enteredCode += number;
+            enteredCode += symbol;
             UpdateDisplay();
         }
     }
@@ -77,14 +84,12 @@ public class TerminalInterface : MonoBehaviour
 
         if (enteredCode == accessCodeDisplay.CurrentCode)
         {
-            Debug.Log("Correct");
             ShowFeedback(correctPanel);
 
             doorControl.OpenDoor();
         }
         else
         {
-            Debug.Log("Incorrect");
             ShowFeedback(incorrectPanel);
         }
 
@@ -117,5 +122,11 @@ public class TerminalInterface : MonoBehaviour
     void UpdateDisplay()
     {
         enteredCodeText.text = enteredCode.PadRight(4, '_');
+    }
+
+    //Terminal button animation trigger stuff
+    public void PressTerminalButton(int buttonNumber)
+    {
+        terminalAnimator.SetTrigger("Button" + buttonNumber + "Pressed");
     }
 }

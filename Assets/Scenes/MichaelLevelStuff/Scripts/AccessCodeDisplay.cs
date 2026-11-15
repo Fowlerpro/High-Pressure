@@ -6,15 +6,23 @@ public class AccessCodeDisplay : MonoBehaviour
     public TextMeshProUGUI codeText;
     public TextMeshProUGUI countdownText;
 
-    private float timer = 30f;
-    private float changeTime = 30f;
+    public float changeTime = 30f;
+
+    private float timer;
 
     public string CurrentCode { get; private set; }
 
+    // Available symbols for the passcode
+    private string[] symbols = { "@", "#", "$", "%" };
+
     void Start()
     {
+        timer = changeTime;
+
         GenerateCode();
         UpdateCountdown();
+
+        codeText.richText = false;
     }
 
     void Update()
@@ -23,10 +31,16 @@ public class AccessCodeDisplay : MonoBehaviour
 
         if (timer <= 0f)
         {
-            timer = changeTime;
-            GenerateCode();
+            ResetCode();
         }
 
+        UpdateCountdown();
+    }
+
+    public void ResetCode()
+    {
+        timer = changeTime;
+        GenerateCode();
         UpdateCountdown();
     }
 
@@ -36,8 +50,8 @@ public class AccessCodeDisplay : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            int digit = Random.Range(1, 10);
-            CurrentCode += digit.ToString();
+            int randomIndex = Random.Range(0, symbols.Length);
+            CurrentCode += symbols[randomIndex];
         }
 
         codeText.text = CurrentCode;
