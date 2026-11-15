@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class ComputerInteract : MonoBehaviour
@@ -7,16 +8,19 @@ public class ComputerInteract : MonoBehaviour
 
     private bool usingComputer = false;
 
+    public bool IsUsingComputer
+    {
+        get { return usingComputer; }
+    }
+
     private CharacterController playerController;
 
     void Start()
     {
-        // Get the player's CharacterController
         playerController = player.GetComponent<CharacterController>();
 
         pcPOV.gameObject.SetActive(false);
 
-        // Hide and lock the mouse during normal gameplay
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -24,7 +28,7 @@ public class ComputerInteract : MonoBehaviour
     void Update()
     {
         // Exit computer
-        if (usingComputer && Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
+        if (usingComputer && (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape)))
         {
             usingComputer = false;
 
@@ -36,10 +40,10 @@ public class ComputerInteract : MonoBehaviour
             Cursor.visible = false;
             MouseLook.CanMove = true;
 
-            // Allow the player to move again
             playerController.enabled = true;
         }
     }
+
     public void Interact()
     {
         if (usingComputer)
@@ -55,11 +59,9 @@ public class ComputerInteract : MonoBehaviour
         Cursor.visible = true;
         MouseLook.CanMove = false;
 
-        // Stop the player from moving
         playerController.enabled = false;
     }
 
-    //Reference for Jit if it murks the Player
     public void ForceCloseComputer()
     {
         if (usingComputer)
@@ -79,3 +81,4 @@ public class ComputerInteract : MonoBehaviour
         }
     }
 }
+

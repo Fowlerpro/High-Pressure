@@ -11,6 +11,8 @@ public class ScannerButton : MonoBehaviour
     public GameObject scannerIdle;
     public GameObject scannerDoing;
 
+    public ComputerInteract computerInteract;
+
     public Slider loadingBar;
     public float scanTime = 3f;
 
@@ -25,6 +27,17 @@ public class ScannerButton : MonoBehaviour
 
     void Update()
     {
+        // Only allow scanning when this computer is being used
+        if (!computerInteract.IsUsingComputer)
+        {
+            if (isHolding)
+            {
+                ReturnToIdle();
+            }
+
+            return;
+        }
+
         // Start scanning when E is pressed
         if (Input.GetKeyDown(KeyCode.E) && !holdCompleted && !isHolding)
         {

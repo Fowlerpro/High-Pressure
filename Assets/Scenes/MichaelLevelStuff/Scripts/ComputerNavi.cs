@@ -323,6 +323,9 @@ public class ComputerNavi : MonoBehaviour
         if (groupIndex < 0 || groupIndex >= navigationGroups.Count)
             return;
 
+        if (groupIndex >= savedButtonIndices.Count)
+            return;
+
         int previousIndex = savedButtonIndices[groupIndex];
 
         if (buttonIndex < previousIndex)
