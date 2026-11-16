@@ -7810,8 +7810,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 38194839}
   playerMovement: {fileID: 2092643387}
-  terminalScreen: {fileID: 859960601}
-  terminalDial: {fileID: 557179251}
+  begonUnityButtons: {fileID: 0}
 --- !u!65 &165767356
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11185,8 +11184,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 601278877}
   playerMovement: {fileID: 2092643387}
-  terminalScreen: {fileID: 682816597}
-  terminalDial: {fileID: 1544038173}
+  begonUnityButtons: {fileID: 0}
 --- !u!65 &207913165
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13353,8 +13351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcPOV: {fileID: 399487611}
-  pcScreen: {fileID: 1342843444}
-  scannerScreen: {fileID: 373195200}
   player: {fileID: 2092643385}
 --- !u!4 &234256640 stripped
 Transform:
@@ -15230,8 +15226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcPOV: {fileID: 893188987}
-  pcScreen: {fileID: 1398833003}
-  scannerScreen: {fileID: 446021086}
   player: {fileID: 2092643385}
 --- !u!1 &274116707
 GameObject:
@@ -19928,6 +19922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codeText: {fileID: 1727131420}
   countdownText: {fileID: 432180888}
+  changeTime: 30
 --- !u!114 &350562472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24639,6 +24634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codeText: {fileID: 181193162}
   countdownText: {fileID: 1323920074}
+  changeTime: 30
 --- !u!1 &418857937
 GameObject:
   m_ObjectHideFlags: 0
@@ -34863,8 +34859,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 776114121}
   playerMovement: {fileID: 2092643387}
-  terminalScreen: {fileID: 1949876610}
-  terminalDial: {fileID: 1704449915}
+  begonUnityButtons: {fileID: 0}
 --- !u!1 &541511999
 GameObject:
   m_ObjectHideFlags: 0
@@ -42206,8 +42201,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 1230022342}
   playerMovement: {fileID: 2092643387}
-  terminalScreen: {fileID: 1950251954}
-  terminalDial: {fileID: 1601725792}
+  begonUnityButtons: {fileID: 0}
 --- !u!65 &647027800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54515,8 +54509,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 1118540362}
   playerMovement: {fileID: 2092643387}
-  terminalScreen: {fileID: 1280586914}
-  terminalDial: {fileID: 992657347}
+  begonUnityButtons: {fileID: 0}
 --- !u!1 &859025224
 GameObject:
   m_ObjectHideFlags: 0
@@ -80398,6 +80391,7 @@ MonoBehaviour:
   scannerDone: {fileID: 1253215924}
   scannerIdle: {fileID: 1209310118}
   scannerDoing: {fileID: 2113839473}
+  computerInteract: {fileID: 0}
   loadingBar: {fileID: 895689375}
   scanTime: 3
 --- !u!114 &1245212161
@@ -118040,8 +118034,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1979432476}
   TerminalCamera: {fileID: 1054639439}
   playerMovement: {fileID: 2092643387}
-  terminalScreen: {fileID: 870047268}
-  terminalDial: {fileID: 1661441780}
+  begonUnityButtons: {fileID: 0}
 --- !u!65 &1870172094
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -121446,7 +121439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1916935667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122638,6 +122631,7 @@ MonoBehaviour:
   scannerDone: {fileID: 210685288}
   scannerIdle: {fileID: 755143329}
   scannerDoing: {fileID: 1211457324}
+  computerInteract: {fileID: 0}
   loadingBar: {fileID: 1124392960}
   scanTime: 3
 --- !u!114 &1926069157
@@ -127152,6 +127146,7 @@ MonoBehaviour:
   scannerDone: {fileID: 1249180839}
   scannerIdle: {fileID: 491394485}
   scannerDoing: {fileID: 1630486452}
+  computerInteract: {fileID: 0}
   loadingBar: {fileID: 1717073896}
   scanTime: 3
 --- !u!114 &1991540268
@@ -134240,8 +134235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcPOV: {fileID: 1275993471}
-  pcScreen: {fileID: 1456467375}
-  scannerScreen: {fileID: 836678697}
   player: {fileID: 2092643385}
 --- !u!1 &2095842021
 GameObject:
@@ -137023,6 +137016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codeText: {fileID: 20902746}
   countdownText: {fileID: 462157766}
+  changeTime: 30
 --- !u!114 &2135214042
 MonoBehaviour:
   m_ObjectHideFlags: 0
