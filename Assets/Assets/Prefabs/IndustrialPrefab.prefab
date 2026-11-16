@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 907ce5c7fb9107249a803fc2963ef3bf, type: 2}
     - target: {fileID: 919132149155446097, guid: 247933b9fc5279549835a395a2936b4d, type: 3}
       propertyPath: m_Name
-      value: floors 1
+      value: IndustrialPrefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
