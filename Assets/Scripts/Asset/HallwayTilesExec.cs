@@ -12,6 +12,7 @@ public class HallwayTilesExec : MonoBehaviour
     public northCornerOptions northCorner;
     public southCornerOptions southCorner;
     public floorOptions floor;
+    public ceilingOptions ceiling;
     private void OnValidate()
     {
         //when the check box is enabled or disabled run update walls which should delete walls when something is off
@@ -24,6 +25,7 @@ public class HallwayTilesExec : MonoBehaviour
     {
         if (this == null || Application.isPlaying)
             return;
+        //Left Wall
         if (leftWall != null)
         {
             if (leftWall.enabled)
@@ -36,6 +38,7 @@ public class HallwayTilesExec : MonoBehaviour
             leftWall.Spawn();
         else
             leftWall.RemoveWall();
+        //Right Wall
         if (rightWall != null)
         {
             if (rightWall.enabled)
@@ -48,6 +51,7 @@ public class HallwayTilesExec : MonoBehaviour
             rightWall.Spawn();
         else
             rightWall.RemoveWall();
+        //NorthWall
         if (northWall != null)
         {
             if (northWall.enabled)
@@ -60,6 +64,7 @@ public class HallwayTilesExec : MonoBehaviour
             northWall.Spawn();
         else
             northWall.RemoveWall();
+        //SouthWall
         if (southWall != null)
         {
             if (southWall.enabled)
@@ -72,18 +77,33 @@ public class HallwayTilesExec : MonoBehaviour
             southWall.Spawn();
         else
             southWall.RemoveWall();
+        //Floor
         if (floor != null)
         {
             if (floor.enabled)
                 floor.Spawn();
             else
-                floor.RemoveWall();
+                floor.RemoveFloor();
         }
 
         if (floor.enabled)
             floor.Spawn();
         else
-            floor.RemoveWall();
+            floor.RemoveFloor();
+        //Ceiling
+        if (ceiling != null)
+        {
+            if (ceiling.enabled)
+                ceiling.Spawn();
+            else
+                ceiling.RemoveCeiling();
+        }
+
+        if (ceiling.enabled)
+            ceiling.Spawn();
+        else
+            ceiling.RemoveCeiling();
+        //Left Corner
         if (leftCorner != null)
         {
             if (leftCorner.enabled)
@@ -96,6 +116,7 @@ public class HallwayTilesExec : MonoBehaviour
             leftCorner.Spawn();
         else
             leftCorner.RemoveWall();
+        //Right Corner
         if (rightCorner != null)
         {
             if (rightCorner.enabled)
@@ -108,6 +129,7 @@ public class HallwayTilesExec : MonoBehaviour
             rightCorner.Spawn();
         else
             rightCorner.RemoveWall();
+        //North Corner
         if (northCorner != null)
         {
             if (northCorner.enabled)
@@ -120,6 +142,7 @@ public class HallwayTilesExec : MonoBehaviour
             northCorner.Spawn();
         else
             northCorner.RemoveWall();
+        //SouthCorner
         if (southCorner != null)
         {
             if (southCorner.enabled)
@@ -134,6 +157,7 @@ public class HallwayTilesExec : MonoBehaviour
             southCorner.RemoveWall();
 
     }
+    //Left Wall Settings
     [System.Serializable]
     public class leftWallOptions
     {
@@ -167,6 +191,7 @@ public class HallwayTilesExec : MonoBehaviour
         }
 
     }
+    //Right Wall Settings
     [System.Serializable]
     public class rightWallOptions
     {
@@ -198,6 +223,7 @@ public class HallwayTilesExec : MonoBehaviour
             newRightWall = null;
         }
     }
+    //North Wall Settings
     [System.Serializable]
     public class northWallOptions
     {
@@ -229,6 +255,7 @@ public class HallwayTilesExec : MonoBehaviour
             newNorthWall = null;
         }
     }
+    //South Wall Settings
     [System.Serializable]
     public class southWallOptions
     {
@@ -260,6 +287,7 @@ public class HallwayTilesExec : MonoBehaviour
             newSouthWall = null;
         }
     }
+    //FloorSettings
     [System.Serializable]
     public class floorOptions
     {
@@ -280,17 +308,50 @@ public class HallwayTilesExec : MonoBehaviour
             newFloor.transform.localPosition = Vector3.zero;
             newFloor.transform.localRotation = Quaternion.identity;
         }
-        public void RemoveWall()
+        public void RemoveFloor()
         {
             if (newFloor == null)
                 return;
 
-            Debug.Log("Removing North wall");
+            Debug.Log("Removing Floor");
 
             DestroyImmediate(newFloor);
             newFloor = null;
         }
     }
+    //CeilingSettings
+    [System.Serializable]
+    public class ceilingOptions
+    {
+        public bool enabled = true;
+        public Transform ceilingSpot;
+
+        public GameObject ceilingPrefab;
+        public GameObject newCeiling;
+        public void Spawn()
+        {
+            if (newCeiling != null)
+                return;
+            if (ceilingPrefab == null || ceilingSpot == null)
+                return;
+            Debug.Log("Spawning Ceiling");
+            newCeiling = Instantiate(ceilingPrefab, ceilingSpot);
+
+            newCeiling.transform.localPosition = Vector3.zero;
+            newCeiling.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveCeiling()
+        {
+            if (newCeiling == null)
+                return;
+
+            Debug.Log("Removing Ceiling");
+
+            DestroyImmediate(newCeiling);
+            newCeiling = null;
+        }
+    }
+    //Left Corner Settings
     [System.Serializable]
     public class leftCornerOptions
     {
@@ -322,6 +383,7 @@ public class HallwayTilesExec : MonoBehaviour
             newLeftCorner = null;
         }
     }
+    //Right Corner Settings
     [System.Serializable]
     public class rightCornerOptions
     {
@@ -353,6 +415,7 @@ public class HallwayTilesExec : MonoBehaviour
             newRightCorner = null;
         }
     }
+    //North Corner Settings
     [System.Serializable]
     public class northCornerOptions
     {
@@ -384,6 +447,7 @@ public class HallwayTilesExec : MonoBehaviour
             newNorthCorner = null;
         }
     }
+    //South Corner Settings
     [System.Serializable]
     public class southCornerOptions
     {
