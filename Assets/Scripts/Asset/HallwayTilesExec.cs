@@ -12,6 +12,7 @@ public class HallwayTilesExec : MonoBehaviour
     public northCornerOptions northCorner;
     public southCornerOptions southCorner;
     public northPropOptions northProp;
+    public rightPropOptions rightProp;
     public floorOptions floor;
     public ceilingOptions ceiling;
     private void OnValidate()
@@ -169,6 +170,20 @@ public class HallwayTilesExec : MonoBehaviour
             northProp.Spawn();
         else
             northProp.RemoveProp();
+    
+       //RightProp
+        if (rightProp != null)
+        {
+            if (rightProp.enabled)
+                rightProp.Spawn();
+            else
+                rightProp.RemoveProp();
+        }
+
+if (rightProp.enabled)
+    rightProp.Spawn();
+else
+    rightProp.RemoveProp();
     }
 
     //Left Wall Settings
@@ -523,6 +538,38 @@ public class HallwayTilesExec : MonoBehaviour
 
             DestroyImmediate(newNorthProp);
             newNorthProp = null;
+        }
+    }
+    //Right Prop Settings
+    [System.Serializable]
+    public class rightPropOptions
+    {
+        public bool enabled = true;
+        public Transform rightPropSpot;
+
+        public GameObject rightPropPrefab;
+        public GameObject newRightProp;
+        public void Spawn()
+        {
+            if (newRightProp != null)
+                return;
+            if (rightPropPrefab == null || rightPropSpot == null)
+                return;
+            Debug.Log("spawning Right Prop");
+            newRightProp = Instantiate(rightPropPrefab, rightPropSpot);
+
+            newRightProp.transform.localPosition = Vector3.zero;
+            newRightProp.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveProp()
+        {
+            if (newRightProp == null)
+                return;
+
+            Debug.Log("Removing Right Prop");
+
+            DestroyImmediate(newRightProp);
+            newRightProp = null;
         }
     }
 }
