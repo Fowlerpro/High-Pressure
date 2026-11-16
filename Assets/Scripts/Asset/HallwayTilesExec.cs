@@ -3,10 +3,7 @@ using UnityEngine;
 public class HallwayTilesExec : MonoBehaviour
 {
 
-    public leftWallOptions leftWall;
-    public rightWallOptions rightWall;
-    public northWallOptions northWall;
-    public southWallOptions southWall;
+    public WallGroup walls = new WallGroup();
     public leftCornerOptions leftCorner;
     public rightCornerOptions rightCorner;
     public northCornerOptions northCorner;
@@ -23,62 +20,71 @@ public class HallwayTilesExec : MonoBehaviour
         UnityEditor.EditorApplication.delayCall += UpdateWalls;
 #endif
     }
+    
+    [System.Serializable]
+    public class WallGroup
+    {
+        public leftWallOptions leftWall;
+        public rightWallOptions rightWall;
+        public northWallOptions northWall;
+        public southWallOptions southWall;
+    }
     private void UpdateWalls()
     {
         if (this == null || Application.isPlaying)
             return;
         //Left Wall
-        if (leftWall != null)
+        if (walls.leftWall != null)
         {
-            if (leftWall.enabled)
-                leftWall.Spawn();
+            if (walls.leftWall.enabled)
+                walls.leftWall.Spawn();
             else
-                leftWall.RemoveWall();
+                walls.leftWall.RemoveWall();
         }
 
-        if (leftWall.enabled)
-            leftWall.Spawn();
+        if (walls.leftWall.enabled)
+            walls.leftWall.Spawn();
         else
-            leftWall.RemoveWall();
+            walls.leftWall.RemoveWall();
         //Right Wall
-        if (rightWall != null)
+        if (walls.rightWall != null)
         {
-            if (rightWall.enabled)
-                rightWall.Spawn();
+            if (walls.rightWall.enabled)
+                walls.rightWall.Spawn();
             else
-                rightWall.RemoveWall();
+                walls.rightWall.RemoveWall();
         }
 
-        if (rightWall.enabled)
-            rightWall.Spawn();
+        if (walls.rightWall.enabled)
+            walls.rightWall.Spawn();
         else
-            rightWall.RemoveWall();
+            walls.rightWall.RemoveWall();
         //NorthWall
-        if (northWall != null)
+        if (walls.northWall != null)
         {
-            if (northWall.enabled)
-                northWall.Spawn();
+            if (walls.northWall.enabled)
+                walls.northWall.Spawn();
             else
-                northWall.RemoveWall();
+                walls.northWall.RemoveWall();
         }
 
-        if (northWall.enabled)
-            northWall.Spawn();
+        if (walls.northWall.enabled)
+            walls.northWall.Spawn();
         else
-            northWall.RemoveWall();
+            walls.northWall.RemoveWall();
         //SouthWall
-        if (southWall != null)
+        if (walls.southWall != null)
         {
-            if (southWall.enabled)
-                southWall.Spawn();
+            if (walls.southWall.enabled)
+                walls.southWall.Spawn();
             else
-                southWall.RemoveWall();
+                walls.southWall.RemoveWall();
         }
 
-        if (southWall.enabled)
-            southWall.Spawn();
+        if (walls.southWall.enabled)
+            walls.southWall.Spawn();
         else
-            southWall.RemoveWall();
+            walls.southWall.RemoveWall();
         //Floor
         if (floor != null)
         {
@@ -228,7 +234,7 @@ else
         public Transform rightWallSpot;
 
         public GameObject rightPrefab;
-        public GameObject newRightWall;
+        private GameObject newRightWall;
         public void Spawn()
         {
             if (newRightWall != null)
@@ -260,7 +266,7 @@ else
         public Transform northWallSpot;
 
         public GameObject northPrefab;
-        public GameObject newNorthWall;
+        private GameObject newNorthWall;
         public void Spawn()
         {
             if (newNorthWall != null)
@@ -292,7 +298,7 @@ else
         public Transform southWallSpot;
 
         public GameObject southPrefab;
-        public GameObject newSouthWall;
+        private GameObject newSouthWall;
         public void Spawn()
         {
             if (newSouthWall != null)
@@ -324,7 +330,7 @@ else
         public Transform floorSpot;
 
         public GameObject floorPrefab;
-        public GameObject newFloor;
+        private GameObject newFloor;
         public void Spawn()
         {
             if (newFloor != null)
@@ -356,7 +362,7 @@ else
         public Transform ceilingSpot;
 
         public GameObject ceilingPrefab;
-        public GameObject newCeiling;
+        private GameObject newCeiling;
         public void Spawn()
         {
             if (newCeiling != null)
@@ -388,7 +394,7 @@ else
         public Transform leftCornerSpot;
 
         public GameObject leftCornerPrefab;
-        public GameObject newLeftCorner;
+        private GameObject newLeftCorner;
         public void Spawn()
         {
             if (newLeftCorner != null)
@@ -420,7 +426,7 @@ else
         public Transform rightCornerSpot;
 
         public GameObject rightCornerPrefab;
-        public GameObject newRightCorner;
+        private GameObject newRightCorner;
         public void Spawn()
         {
             if (newRightCorner != null)
@@ -452,7 +458,7 @@ else
         public Transform northCornerSpot;
 
         public GameObject northCornerPrefab;
-        public GameObject newNorthCorner;
+        private GameObject newNorthCorner;
         public void Spawn()
         {
             if (newNorthCorner != null)
@@ -484,7 +490,7 @@ else
         public Transform southCornerSpot;
 
         public GameObject southCornerPrefab;
-        public GameObject newSouthCorner;
+        private GameObject newSouthCorner;
         public void Spawn()
         {
             if (newSouthCorner != null)
@@ -516,7 +522,7 @@ else
         public Transform northPropSpot;
 
         public GameObject northPropPrefab;
-        public GameObject newNorthProp;
+        private GameObject newNorthProp;
         public void Spawn()
         {
             if (newNorthProp != null)
@@ -548,7 +554,7 @@ else
         public Transform rightPropSpot;
 
         public GameObject rightPropPrefab;
-        public GameObject newRightProp;
+        private GameObject newRightProp;
         public void Spawn()
         {
             if (newRightProp != null)
