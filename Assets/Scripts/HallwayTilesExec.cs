@@ -3,15 +3,15 @@ using UnityEngine;
 public class HallwayTilesExec : MonoBehaviour
 {
 
-    public leftWallOptions leftWall;
-    public rightWallOptions rightWall;
-    public northWallOptions northWall;
-    public southWallOptions southWall;
+    public WallGroup walls = new WallGroup();
     public leftCornerOptions leftCorner;
     public rightCornerOptions rightCorner;
     public northCornerOptions northCorner;
     public southCornerOptions southCorner;
+    public northPropOptions northProp;
+    public rightPropOptions rightProp;
     public floorOptions floor;
+    public ceilingOptions ceiling;
     private void OnValidate()
     {
         //when the check box is enabled or disabled run update walls which should delete walls when something is off
@@ -20,70 +20,98 @@ public class HallwayTilesExec : MonoBehaviour
         UnityEditor.EditorApplication.delayCall += UpdateWalls;
 #endif
     }
+    
+    [System.Serializable]
+    public class WallGroup
+    {
+        public leftWallOptions leftWall;
+        public rightWallOptions rightWall;
+        public northWallOptions northWall;
+        public southWallOptions southWall;
+    }
     private void UpdateWalls()
     {
         if (this == null || Application.isPlaying)
             return;
-        if (leftWall != null)
+        //Left Wall
+        if (walls.leftWall != null)
         {
-            if (leftWall.enabled)
-                leftWall.Spawn();
+            if (walls.leftWall.enabled)
+                walls.leftWall.Spawn();
             else
-                leftWall.RemoveWall();
+                walls.leftWall.RemoveWall();
         }
 
-        if (leftWall.enabled)
-            leftWall.Spawn();
+        if (walls.leftWall.enabled)
+            walls.leftWall.Spawn();
         else
-            leftWall.RemoveWall();
-        if (rightWall != null)
+            walls.leftWall.RemoveWall();
+        //Right Wall
+        if (walls.rightWall != null)
         {
-            if (rightWall.enabled)
-                rightWall.Spawn();
+            if (walls.rightWall.enabled)
+                walls.rightWall.Spawn();
             else
-                rightWall.RemoveWall();
+                walls.rightWall.RemoveWall();
         }
 
-        if (rightWall.enabled)
-            rightWall.Spawn();
+        if (walls.rightWall.enabled)
+            walls.rightWall.Spawn();
         else
-            rightWall.RemoveWall();
-        if (northWall != null)
+            walls.rightWall.RemoveWall();
+        //NorthWall
+        if (walls.northWall != null)
         {
-            if (northWall.enabled)
-                northWall.Spawn();
+            if (walls.northWall.enabled)
+                walls.northWall.Spawn();
             else
-                northWall.RemoveWall();
+                walls.northWall.RemoveWall();
         }
 
-        if (northWall.enabled)
-            northWall.Spawn();
+        if (walls.northWall.enabled)
+            walls.northWall.Spawn();
         else
-            northWall.RemoveWall();
-        if (southWall != null)
+            walls.northWall.RemoveWall();
+        //SouthWall
+        if (walls.southWall != null)
         {
-            if (southWall.enabled)
-                southWall.Spawn();
+            if (walls.southWall.enabled)
+                walls.southWall.Spawn();
             else
-                southWall.RemoveWall();
+                walls.southWall.RemoveWall();
         }
 
-        if (southWall.enabled)
-            southWall.Spawn();
+        if (walls.southWall.enabled)
+            walls.southWall.Spawn();
         else
-            southWall.RemoveWall();
+            walls.southWall.RemoveWall();
+        //Floor
         if (floor != null)
         {
             if (floor.enabled)
                 floor.Spawn();
             else
-                floor.RemoveWall();
+                floor.RemoveFloor();
         }
 
         if (floor.enabled)
             floor.Spawn();
         else
-            floor.RemoveWall();
+            floor.RemoveFloor();
+        //Ceiling
+        if (ceiling != null)
+        {
+            if (ceiling.enabled)
+                ceiling.Spawn();
+            else
+                ceiling.RemoveCeiling();
+        }
+
+        if (ceiling.enabled)
+            ceiling.Spawn();
+        else
+            ceiling.RemoveCeiling();
+        //Left Corner
         if (leftCorner != null)
         {
             if (leftCorner.enabled)
@@ -96,6 +124,7 @@ public class HallwayTilesExec : MonoBehaviour
             leftCorner.Spawn();
         else
             leftCorner.RemoveWall();
+        //Right Corner
         if (rightCorner != null)
         {
             if (rightCorner.enabled)
@@ -108,6 +137,7 @@ public class HallwayTilesExec : MonoBehaviour
             rightCorner.Spawn();
         else
             rightCorner.RemoveWall();
+        //North Corner
         if (northCorner != null)
         {
             if (northCorner.enabled)
@@ -120,6 +150,7 @@ public class HallwayTilesExec : MonoBehaviour
             northCorner.Spawn();
         else
             northCorner.RemoveWall();
+        //SouthCorner
         if (southCorner != null)
         {
             if (southCorner.enabled)
@@ -132,8 +163,36 @@ public class HallwayTilesExec : MonoBehaviour
             southCorner.Spawn();
         else
             southCorner.RemoveWall();
+        //NorthProp
+        if (northProp != null)
+        {
+            if (northProp.enabled)
+                northProp.Spawn();
+            else
+                northProp.RemoveProp();
+        }
 
+        if (northProp.enabled)
+            northProp.Spawn();
+        else
+            northProp.RemoveProp();
+    
+       //RightProp
+        if (rightProp != null)
+        {
+            if (rightProp.enabled)
+                rightProp.Spawn();
+            else
+                rightProp.RemoveProp();
+        }
+
+if (rightProp.enabled)
+    rightProp.Spawn();
+else
+    rightProp.RemoveProp();
     }
+
+    //Left Wall Settings
     [System.Serializable]
     public class leftWallOptions
     {
@@ -167,6 +226,7 @@ public class HallwayTilesExec : MonoBehaviour
         }
 
     }
+    //Right Wall Settings
     [System.Serializable]
     public class rightWallOptions
     {
@@ -174,7 +234,7 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform rightWallSpot;
 
         public GameObject rightPrefab;
-        public GameObject newRightWall;
+        private GameObject newRightWall;
         public void Spawn()
         {
             if (newRightWall != null)
@@ -198,6 +258,7 @@ public class HallwayTilesExec : MonoBehaviour
             newRightWall = null;
         }
     }
+    //North Wall Settings
     [System.Serializable]
     public class northWallOptions
     {
@@ -205,7 +266,7 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform northWallSpot;
 
         public GameObject northPrefab;
-        public GameObject newNorthWall;
+        private GameObject newNorthWall;
         public void Spawn()
         {
             if (newNorthWall != null)
@@ -229,6 +290,7 @@ public class HallwayTilesExec : MonoBehaviour
             newNorthWall = null;
         }
     }
+    //South Wall Settings
     [System.Serializable]
     public class southWallOptions
     {
@@ -236,7 +298,7 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform southWallSpot;
 
         public GameObject southPrefab;
-        public GameObject newSouthWall;
+        private GameObject newSouthWall;
         public void Spawn()
         {
             if (newSouthWall != null)
@@ -260,6 +322,7 @@ public class HallwayTilesExec : MonoBehaviour
             newSouthWall = null;
         }
     }
+    //FloorSettings
     [System.Serializable]
     public class floorOptions
     {
@@ -267,7 +330,7 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform floorSpot;
 
         public GameObject floorPrefab;
-        public GameObject newFloor;
+        private GameObject newFloor;
         public void Spawn()
         {
             if (newFloor != null)
@@ -280,17 +343,50 @@ public class HallwayTilesExec : MonoBehaviour
             newFloor.transform.localPosition = Vector3.zero;
             newFloor.transform.localRotation = Quaternion.identity;
         }
-        public void RemoveWall()
+        public void RemoveFloor()
         {
             if (newFloor == null)
                 return;
 
-            Debug.Log("Removing North wall");
+            Debug.Log("Removing Floor");
 
             DestroyImmediate(newFloor);
             newFloor = null;
         }
     }
+    //CeilingSettings
+    [System.Serializable]
+    public class ceilingOptions
+    {
+        public bool enabled = true;
+        public Transform ceilingSpot;
+
+        public GameObject ceilingPrefab;
+        private GameObject newCeiling;
+        public void Spawn()
+        {
+            if (newCeiling != null)
+                return;
+            if (ceilingPrefab == null || ceilingSpot == null)
+                return;
+            Debug.Log("Spawning Ceiling");
+            newCeiling = Instantiate(ceilingPrefab, ceilingSpot);
+
+            newCeiling.transform.localPosition = Vector3.zero;
+            newCeiling.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveCeiling()
+        {
+            if (newCeiling == null)
+                return;
+
+            Debug.Log("Removing Ceiling");
+
+            DestroyImmediate(newCeiling);
+            newCeiling = null;
+        }
+    }
+    //Left Corner Settings
     [System.Serializable]
     public class leftCornerOptions
     {
@@ -298,7 +394,7 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform leftCornerSpot;
 
         public GameObject leftCornerPrefab;
-        public GameObject newLeftCorner;
+        private GameObject newLeftCorner;
         public void Spawn()
         {
             if (newLeftCorner != null)
@@ -322,6 +418,7 @@ public class HallwayTilesExec : MonoBehaviour
             newLeftCorner = null;
         }
     }
+    //Right Corner Settings
     [System.Serializable]
     public class rightCornerOptions
     {
@@ -329,7 +426,7 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform rightCornerSpot;
 
         public GameObject rightCornerPrefab;
-        public GameObject newRightCorner;
+        private GameObject newRightCorner;
         public void Spawn()
         {
             if (newRightCorner != null)
@@ -353,6 +450,7 @@ public class HallwayTilesExec : MonoBehaviour
             newRightCorner = null;
         }
     }
+    //North Corner Settings
     [System.Serializable]
     public class northCornerOptions
     {
@@ -360,7 +458,7 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform northCornerSpot;
 
         public GameObject northCornerPrefab;
-        public GameObject newNorthCorner;
+        private GameObject newNorthCorner;
         public void Spawn()
         {
             if (newNorthCorner != null)
@@ -384,6 +482,7 @@ public class HallwayTilesExec : MonoBehaviour
             newNorthCorner = null;
         }
     }
+    //South Corner Settings
     [System.Serializable]
     public class southCornerOptions
     {
@@ -391,7 +490,7 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform southCornerSpot;
 
         public GameObject southCornerPrefab;
-        public GameObject newSouthCorner;
+        private GameObject newSouthCorner;
         public void Spawn()
         {
             if (newSouthCorner != null)
@@ -413,6 +512,70 @@ public class HallwayTilesExec : MonoBehaviour
 
             DestroyImmediate(newSouthCorner);
             newSouthCorner = null;
+        }
+    }
+    //North Prop Settings
+    [System.Serializable]
+    public class northPropOptions
+    {
+        public bool enabled = true;
+        public Transform northPropSpot;
+
+        public GameObject northPropPrefab;
+        private GameObject newNorthProp;
+        public void Spawn()
+        {
+            if (newNorthProp != null)
+                return;
+            if (northPropPrefab == null || northPropSpot == null)
+                return;
+            Debug.Log("spawning North Prop");
+            newNorthProp = Instantiate(northPropPrefab, northPropSpot);
+
+            newNorthProp.transform.localPosition = Vector3.zero;
+            newNorthProp.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveProp()
+        {
+            if (newNorthProp == null)
+                return;
+
+            Debug.Log("Removing North Prop");
+
+            DestroyImmediate(newNorthProp);
+            newNorthProp = null;
+        }
+    }
+    //Right Prop Settings
+    [System.Serializable]
+    public class rightPropOptions
+    {
+        public bool enabled = true;
+        public Transform rightPropSpot;
+
+        public GameObject rightPropPrefab;
+        private GameObject newRightProp;
+        public void Spawn()
+        {
+            if (newRightProp != null)
+                return;
+            if (rightPropPrefab == null || rightPropSpot == null)
+                return;
+            Debug.Log("spawning Right Prop");
+            newRightProp = Instantiate(rightPropPrefab, rightPropSpot);
+
+            newRightProp.transform.localPosition = Vector3.zero;
+            newRightProp.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveProp()
+        {
+            if (newRightProp == null)
+                return;
+
+            Debug.Log("Removing Right Prop");
+
+            DestroyImmediate(newRightProp);
+            newRightProp = null;
         }
     }
 }
