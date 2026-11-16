@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &11712422557889636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3887653487755036229}
+  m_Layer: 0
+  m_Name: NorthPropSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3887653487755036229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11712422557889636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1829604301990238789}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &165994859522002216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,7 +1192,7 @@ GameObject:
   - component: {fileID: 1829604301990238789}
   - component: {fileID: 1160170579976725550}
   m_Layer: 0
-  m_Name: Hallway 2
+  m_Name: Hallway Exec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1183,6 +1214,7 @@ Transform:
   - {fileID: 6064337949204445200}
   - {fileID: 3595566365768763561}
   - {fileID: 2608630246590310972}
+  - {fileID: 3887653487755036229}
   - {fileID: 723338298815495081}
   - {fileID: 8294292720462301367}
   - {fileID: 930351500702600042}
@@ -1244,6 +1276,11 @@ MonoBehaviour:
     southCornerSpot: {fileID: 2140631843714934461}
     southCornerPrefab: {fileID: 919132149155446097, guid: 25e8fce0ebfd0c64c8b8c6266d735391, type: 3}
     newSouthCorner: {fileID: 3047549259610741886}
+  northProp:
+    enabled: 0
+    northPropSpot: {fileID: 3887653487755036229}
+    northPropPrefab: {fileID: 7852451312102147346, guid: 945d02dfa18fa2d4183f12bcc84c46a0, type: 3}
+    newNorthProp: {fileID: 0}
   floor:
     enabled: 1
     floorSpot: {fileID: 8294292720462301367}

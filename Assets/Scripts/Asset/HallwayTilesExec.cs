@@ -11,6 +11,7 @@ public class HallwayTilesExec : MonoBehaviour
     public rightCornerOptions rightCorner;
     public northCornerOptions northCorner;
     public southCornerOptions southCorner;
+    public northPropOptions northProp;
     public floorOptions floor;
     public ceilingOptions ceiling;
     private void OnValidate()
@@ -155,8 +156,21 @@ public class HallwayTilesExec : MonoBehaviour
             southCorner.Spawn();
         else
             southCorner.RemoveWall();
+        //NorthProp
+        if (northProp != null)
+        {
+            if (northProp.enabled)
+                northProp.Spawn();
+            else
+                northProp.RemoveProp();
+        }
 
+        if (northProp.enabled)
+            northProp.Spawn();
+        else
+            northProp.RemoveProp();
     }
+
     //Left Wall Settings
     [System.Serializable]
     public class leftWallOptions
@@ -477,6 +491,38 @@ public class HallwayTilesExec : MonoBehaviour
 
             DestroyImmediate(newSouthCorner);
             newSouthCorner = null;
+        }
+    }
+    //North Prop Settings
+    [System.Serializable]
+    public class northPropOptions
+    {
+        public bool enabled = true;
+        public Transform northPropSpot;
+
+        public GameObject northPropPrefab;
+        public GameObject newNorthProp;
+        public void Spawn()
+        {
+            if (newNorthProp != null)
+                return;
+            if (northPropPrefab == null || northPropSpot == null)
+                return;
+            Debug.Log("spawning North Prop");
+            newNorthProp = Instantiate(northPropPrefab, northPropSpot);
+
+            newNorthProp.transform.localPosition = Vector3.zero;
+            newNorthProp.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveProp()
+        {
+            if (newNorthProp == null)
+                return;
+
+            Debug.Log("Removing North Prop");
+
+            DestroyImmediate(newNorthProp);
+            newNorthProp = null;
         }
     }
 }
