@@ -4,12 +4,8 @@ public class HallwayTilesExec : MonoBehaviour
 {
 
     public WallGroup walls = new WallGroup();
-    public leftCornerOptions leftCorner;
-    public rightCornerOptions rightCorner;
-    public northCornerOptions northCorner;
-    public southCornerOptions southCorner;
-    public northPropOptions northProp;
-    public rightPropOptions rightProp;
+    public CornerGroup corners = new CornerGroup();
+    public PropGroup props = new PropGroup();
     public floorOptions floor;
     public ceilingOptions ceiling;
     private void OnValidate()
@@ -20,7 +16,7 @@ public class HallwayTilesExec : MonoBehaviour
         UnityEditor.EditorApplication.delayCall += UpdateWalls;
 #endif
     }
-    
+    //Walls
     [System.Serializable]
     public class WallGroup
     {
@@ -28,6 +24,24 @@ public class HallwayTilesExec : MonoBehaviour
         public rightWallOptions rightWall;
         public northWallOptions northWall;
         public southWallOptions southWall;
+    }
+    //Corners
+    [System.Serializable]
+    public class CornerGroup
+    {
+        public leftCornerOptions leftCorner;
+        public rightCornerOptions rightCorner;
+        public northCornerOptions northCorner;
+        public southCornerOptions southCorner;
+    }
+    //Props
+    [System.Serializable]
+    public class PropGroup
+    {
+        public northPropOptions northProp;
+        public rightPropOptions rightProp;
+        public leftPropOptions leftProp;
+        public southPropOptions southProp;
     }
     private void UpdateWalls()
     {
@@ -112,84 +126,105 @@ public class HallwayTilesExec : MonoBehaviour
         else
             ceiling.RemoveCeiling();
         //Left Corner
-        if (leftCorner != null)
+        if (corners.leftCorner != null)
         {
-            if (leftCorner.enabled)
-                leftCorner.Spawn();
+            if (corners.leftCorner.enabled)
+                corners.leftCorner.Spawn();
             else
-                leftCorner.RemoveWall();
+                corners.leftCorner.RemoveWall();
         }
 
-        if (leftCorner.enabled)
-            leftCorner.Spawn();
+        if (corners.leftCorner.enabled)
+            corners.leftCorner.Spawn();
         else
-            leftCorner.RemoveWall();
+            corners.leftCorner.RemoveWall();
         //Right Corner
-        if (rightCorner != null)
+        if (corners.rightCorner != null)
         {
-            if (rightCorner.enabled)
-                rightCorner.Spawn();
+            if (corners.rightCorner.enabled)
+                corners.rightCorner.Spawn();
             else
-                rightCorner.RemoveWall();
+                corners.rightCorner.RemoveWall();
         }
 
-        if (rightCorner.enabled)
-            rightCorner.Spawn();
+        if (corners.rightCorner.enabled)
+            corners.rightCorner.Spawn();
         else
-            rightCorner.RemoveWall();
+            corners.rightCorner.RemoveWall();
         //North Corner
-        if (northCorner != null)
+        if (corners.northCorner != null)
         {
-            if (northCorner.enabled)
-                northCorner.Spawn();
+            if (corners.northCorner.enabled)
+                corners.northCorner.Spawn();
             else
-                northCorner.RemoveWall();
+                corners.northCorner.RemoveWall();
         }
 
-        if (northCorner.enabled)
-            northCorner.Spawn();
+        if (corners.northCorner.enabled)
+            corners.northCorner.Spawn();
         else
-            northCorner.RemoveWall();
+            corners.northCorner.RemoveWall();
         //SouthCorner
-        if (southCorner != null)
+        if (corners.southCorner != null)
         {
-            if (southCorner.enabled)
-                southCorner.Spawn();
+            if (corners.southCorner.enabled)
+                corners.southCorner.Spawn();
             else
-                southCorner.RemoveWall();
+                corners.southCorner.RemoveWall();
         }
 
-        if (southCorner.enabled)
-            southCorner.Spawn();
+        if (corners.southCorner.enabled)
+            corners.southCorner.Spawn();
         else
-            southCorner.RemoveWall();
+            corners.southCorner.RemoveWall();
         //NorthProp
-        if (northProp != null)
+        if (props.northProp != null)
         {
-            if (northProp.enabled)
-                northProp.Spawn();
+            if (props.northProp.enabled)
+                props.northProp.Spawn();
             else
-                northProp.RemoveProp();
+                props.northProp.RemoveProp();
+        }
+        //SouthProp
+        if (props.southProp != null)
+        {
+            if (props.southProp.enabled)
+                props.southProp.Spawn();
+            else
+                props.southProp.RemoveProp();
         }
 
-        if (northProp.enabled)
-            northProp.Spawn();
+        if (props.southProp.enabled)
+            props.southProp.Spawn();
         else
-            northProp.RemoveProp();
-    
-       //RightProp
-        if (rightProp != null)
+            props.southProp.RemoveProp();
+        //LeftProp
+        if (props.leftProp != null)
         {
-            if (rightProp.enabled)
-                rightProp.Spawn();
+            if (props.leftProp.enabled)
+                props.leftProp.Spawn();
             else
-                rightProp.RemoveProp();
+                props.leftProp.RemoveProp();
         }
 
-if (rightProp.enabled)
-    rightProp.Spawn();
+        if (props.leftProp.enabled)
+            props.leftProp.Spawn();
+        else
+            props.leftProp.RemoveProp();
+
+        //RightProp
+        if (props.rightProp != null)
+        {
+            if (props.rightProp.enabled)
+                props.rightProp.Spawn();
+            else
+                props.rightProp.RemoveProp();
+        }
+
+if (props.rightProp.enabled)
+            props.rightProp.Spawn();
 else
-    rightProp.RemoveProp();
+            props.rightProp.RemoveProp();
     }
 
     //Left Wall Settings
@@ -546,6 +581,70 @@ else
             newNorthProp = null;
         }
     }
+    //South Prop Settings
+    [System.Serializable]
+    public class southPropOptions
+    {
+        public bool enabled = true;
+        public Transform southPropSpot;
+
+        public GameObject southPropPrefab;
+        private GameObject newSouthProp;
+        public void Spawn()
+        {
+            if (newSouthProp != null)
+                return;
+            if (southPropPrefab == null || southPropSpot == null)
+                return;
+            //Debug.Log("spawning South Prop");
+            newSouthProp = Instantiate(southPropPrefab, southPropSpot);
+
+            newSouthProp.transform.localPosition = Vector3.zero;
+            newSouthProp.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveProp()
+        {
+            if (newSouthProp == null)
+                return;
+
+            //Debug.Log("Removing South Prop");
+
+            DestroyImmediate(newSouthProp);
+            newSouthProp = null;
+        }
+    }
+    //Left Prop Settings
+    [System.Serializable]
+    public class leftPropOptions
+    {
+        public bool enabled = true;
+        public Transform leftPropSpot;
+
+        public GameObject leftPropPrefab;
+        private GameObject newLeftProp;
+        public void Spawn()
+        {
+            if (newLeftProp != null)
+                return;
+            if (leftPropPrefab == null || leftPropSpot == null)
+                return;
+            //Debug.Log("spawning South Prop");
+            newLeftProp = Instantiate(leftPropPrefab, leftPropSpot);
+
+            newLeftProp.transform.localPosition = Vector3.zero;
+            newLeftProp.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveProp()
+        {
+            if (newLeftProp == null)
+                return;
+
+            //Debug.Log("Removing Left Prop");
+
+            DestroyImmediate(newLeftProp);
+            newLeftProp = null;
+        }
+    }
     //Right Prop Settings
     [System.Serializable]
     public class rightPropOptions
@@ -561,7 +660,7 @@ else
                 return;
             if (rightPropPrefab == null || rightPropSpot == null)
                 return;
-            Debug.Log("spawning Right Prop");
+            //Debug.Log("spawning Right Prop");
             newRightProp = Instantiate(rightPropPrefab, rightPropSpot);
 
             newRightProp.transform.localPosition = Vector3.zero;
@@ -572,7 +671,7 @@ else
             if (newRightProp == null)
                 return;
 
-            Debug.Log("Removing Right Prop");
+            //Debug.Log("Removing Right Prop");
 
             DestroyImmediate(newRightProp);
             newRightProp = null;
