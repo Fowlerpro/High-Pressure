@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerRespawn : MonoBehaviour
 {
@@ -10,18 +11,26 @@ public class PlayerRespawn : MonoBehaviour
     public AIManager enemyLevel1;
     public AIManager enemyLevel2;
 
-    public TerminalInteract[] terminalInteracts;
-    public ComputerInteract[] computerInteracts;
+    public GameObject deathPanel;
 
     CharacterController controller;
-
+    
+    public TerminalInteract[] terminalInteracts;
+    public ComputerInteract[] computerInteracts;
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        if (deathPanel != null)
+        {
+            deathPanel.SetActive(false);
+        }
     }
 
     public void Respawn()
     {
+        StartCoroutine(RespawnRoutine());
+            
         // Close all terminals
         foreach (TerminalInteract terminal in terminalInteracts)
         {
@@ -39,8 +48,17 @@ public class PlayerRespawn : MonoBehaviour
                 computer.ForceCloseComputer();
             }
         }
+    }
 
-        // Reset BOTH enemies
+    IEnumerator RespawnRoutine()
+    {
+        if (deathPanel != null)
+        {
+            deathPanel.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
         if (enemyLevel1 != null)
         {
             enemyLevel1.ResetEnemy();
@@ -51,18 +69,20 @@ public class PlayerRespawn : MonoBehaviour
             enemyLevel2.ResetEnemy();
         }
 
-        // Respawn player
         controller.enabled = false;
 
         transform.position = currentSpawn.position;
 
         controller.enabled = true;
 
-        // If already in Level 2,
-        // reactivate the Level 2 enemy
-        if (currentSpawn == level2Spawn)
+        if (currentSpawn == level2Spawn && enemyLevel2 != null)
         {
             enemyLevel2.ActivateEnemy();
+        }
+
+        if (deathPanel != null)
+        {
+            deathPanel.SetActive(false);
         }
     }
 
