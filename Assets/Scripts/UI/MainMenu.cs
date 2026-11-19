@@ -5,9 +5,11 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
     public bool controlsActive = false;
-    public GameObject controlsPanel;
+    public GameObject menuPanel;
     public CanvasGroup canvasGroup;
     public float canvasFadeSpeed = 1;
+    public GameObject controlsCamera;
+    public GameObject mainCamera;
 
     void Start()
     {
@@ -22,7 +24,9 @@ public class MainMenu : MonoBehaviour
         
         if (controlsActive)
         {
-            controlsPanel.SetActive(false);
+            controlsCamera.SetActive(false);
+            mainCamera.SetActive(true);
+            controlsActive = false;
         }
         StartCoroutine(MenuFade());
 
@@ -32,20 +36,28 @@ public class MainMenu : MonoBehaviour
     {
         if (controlsActive == false)
         {
-        controlsPanel.SetActive(true);
+            mainCamera.SetActive(false);
+            menuPanel.SetActive(false);
+            controlsCamera.SetActive(true);
             controlsActive = true;
         }
         else
         {
-            controlsPanel.SetActive(false);
+            mainCamera.SetActive(true);
+            menuPanel.SetActive(true);
+            controlsCamera.SetActive(false);
             controlsActive = false;
         }
 
         }
 
     public void HideControls()
-    {
-        controlsPanel.SetActive(false);
+    {  
+        canvasGroup.alpha = 1f;
+        menuPanel.SetActive(true);
+        controlsCamera.SetActive(false);
+        mainCamera.SetActive(true);
+        controlsActive = false;
     }
 
     public void QuitGame()

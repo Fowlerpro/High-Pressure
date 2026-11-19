@@ -48,6 +48,17 @@ public class HallwayTilesExec : MonoBehaviour
     {
         if (this == null || Application.isPlaying)
             return;
+        //If statement to stop objects from spawning in other scenes
+#if UNITY_EDITOR
+    if (UnityEditor.EditorUtility.IsPersistent(this))
+        return;
+
+    if (UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null)
+        return;
+
+    if (!gameObject.scene.IsValid() || !gameObject.scene.isLoaded)
+        return;
+#endif
         //Left Wall
         if (walls.leftWall != null)
         {
@@ -57,10 +68,6 @@ public class HallwayTilesExec : MonoBehaviour
                 walls.leftWall.RemoveWall();
         }
 
-        if (walls.leftWall.enabled)
-            walls.leftWall.Spawn();
-        else
-            walls.leftWall.RemoveWall();
         //Right Wall
         if (walls.rightWall != null)
         {
@@ -70,10 +77,6 @@ public class HallwayTilesExec : MonoBehaviour
                 walls.rightWall.RemoveWall();
         }
 
-        if (walls.rightWall.enabled)
-            walls.rightWall.Spawn();
-        else
-            walls.rightWall.RemoveWall();
         //NorthWall
         if (walls.northWall != null)
         {
@@ -82,11 +85,6 @@ public class HallwayTilesExec : MonoBehaviour
             else
                 walls.northWall.RemoveWall();
         }
-
-        if (walls.northWall.enabled)
-            walls.northWall.Spawn();
-        else
-            walls.northWall.RemoveWall();
         //SouthWall
         if (walls.southWall != null)
         {
@@ -96,10 +94,6 @@ public class HallwayTilesExec : MonoBehaviour
                 walls.southWall.RemoveWall();
         }
 
-        if (walls.southWall.enabled)
-            walls.southWall.Spawn();
-        else
-            walls.southWall.RemoveWall();
         //Floor
         if (floor != null)
         {
@@ -108,11 +102,6 @@ public class HallwayTilesExec : MonoBehaviour
             else
                 floor.RemoveFloor();
         }
-
-        if (floor.enabled)
-            floor.Spawn();
-        else
-            floor.RemoveFloor();
         //Ceiling
         if (ceiling != null)
         {
@@ -121,11 +110,6 @@ public class HallwayTilesExec : MonoBehaviour
             else
                 ceiling.RemoveCeiling();
         }
-
-        if (ceiling.enabled)
-            ceiling.Spawn();
-        else
-            ceiling.RemoveCeiling();
         //Left Corner
         if (corners.leftCorner != null)
         {
@@ -537,6 +521,13 @@ public class HallwayTilesExec : MonoBehaviour
                 return;
             if (northPropPrefab == null || northPropSpot == null)
                 return;
+#if UNITY_EDITOR
+if (UnityEditor.EditorUtility.IsPersistent(northPropSpot))
+{
+    Debug.LogWarning("North Prop Spot is referencing a prefab asset!");
+    return;
+}
+#endif
             Debug.Log("spawning North Prop");
             newNorthProp = Instantiate(northPropPrefab, northPropSpot);
 
