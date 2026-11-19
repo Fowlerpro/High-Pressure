@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ComputerNavi : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ComputerNavi : MonoBehaviour
 
     [Header("Computer Interaction")]
     public Camera pcPOV;
+    public ComputerInteract computerInteract;
 
     [Header("Dial Animation")]
     public Animator dialAnimator;
@@ -60,9 +62,11 @@ public class ComputerNavi : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
-        if (pcPOV == null || !pcPOV.gameObject.activeInHierarchy)
+        // Only allow navigation when actively using this computer
+        if (computerInteract == null || !computerInteract.IsUsingComputer)
         {
             usingComputer = false;
             return;
@@ -91,7 +95,10 @@ public class ComputerNavi : MonoBehaviour
         if (currentGroupIndex < 0)
             return;
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        // UP - W / Arrow Up / Controller D-Pad Up
+        if (Input.GetKeyDown(KeyCode.W) ||
+            Input.GetKeyDown(KeyCode.UpArrow) ||
+            (Gamepad.current != null && Gamepad.current.dpad.up.wasPressedThisFrame))
         {
             int previousIndex = savedButtonIndices[currentGroupIndex];
 
@@ -106,7 +113,10 @@ public class ComputerNavi : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        // DOWN - S / Arrow Down / Controller D-Pad Down
+        if (Input.GetKeyDown(KeyCode.S) ||
+            Input.GetKeyDown(KeyCode.DownArrow) ||
+            (Gamepad.current != null && Gamepad.current.dpad.down.wasPressedThisFrame))
         {
             int previousIndex = savedButtonIndices[currentGroupIndex];
 
@@ -121,18 +131,27 @@ public class ComputerNavi : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        // RIGHT - D / Arrow Right / Controller D-Pad Right
+        if (Input.GetKeyDown(KeyCode.D) ||
+            Input.GetKeyDown(KeyCode.RightArrow) ||
+            (Gamepad.current != null && Gamepad.current.dpad.right.wasPressedThisFrame))
         {
             RotateThirdDialRight();
             ActivateSelectedButton();
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        // ENTER - Keyboard Enter / Controller South (Cross / A)
+        if (Input.GetKeyDown(KeyCode.Return) ||
+            Input.GetKeyDown(KeyCode.KeypadEnter) ||
+            (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame))
         {
             ActivateSelectedButton();
         }
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        // LEFT - A / Arrow Left / Controller D-Pad Left
+        if (Input.GetKeyDown(KeyCode.A) ||
+            Input.GetKeyDown(KeyCode.LeftArrow) ||
+            (Gamepad.current != null && Gamepad.current.dpad.left.wasPressedThisFrame))
         {
             RotateThirdDialLeft();
             GoBack();
@@ -386,5 +405,14 @@ public class ComputerNavi : MonoBehaviour
     {
         if (dialAnimator != null)
             dialAnimator.SetTrigger(RotateDeSelectTrigger);
+    }
+
+    private void OnDisable()
+    {
+        EventSystem.current?.SetSelectedGameObject(null);
+
+        usingComputer = false;
+        currentGroupIndex = -1;
+        manualMainFocus = false;
     }
 }

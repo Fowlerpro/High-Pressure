@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class ComputerInteract : MonoBehaviour
@@ -31,9 +32,11 @@ public class ComputerInteract : MonoBehaviour
     {
         // Exit computer
         if (usingComputer && (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape) || Gamepad.current != null &&
-             Gamepad.current.buttonWest.wasPressedThisFrame))
+             Gamepad.current.buttonNorth.wasPressedThisFrame))
         {
             usingComputer = false;
+
+            EventSystem.current?.SetSelectedGameObject(null);
 
             FindAnyObjectByType<PlayerInteraction>().EndInteraction();
 
@@ -72,6 +75,8 @@ public class ComputerInteract : MonoBehaviour
         if (usingComputer)
         {
             usingComputer = false;
+
+            EventSystem.current?.SetSelectedGameObject(null);
 
             FindAnyObjectByType<PlayerInteraction>().EndInteraction();
 
