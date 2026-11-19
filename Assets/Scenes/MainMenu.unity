@@ -594,7 +594,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1513853457}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TerminalInterface, Assembly-CSharp
         m_MethodName: ClearCode
         m_Mode: 1
@@ -7513,15 +7513,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1513853458}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1513853457}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1513853456}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1513853455}
   m_SourcePrefab: {fileID: 100100000, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
 --- !u!1 &1513853453 stripped
 GameObject:
@@ -7533,61 +7524,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab9e0e65095b9da4580474501c164aaf, type: 3}
   m_PrefabInstance: {fileID: 1513853452}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1513853455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513853453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60ba44a0a5df04e4883f3b1b3886f953, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
-  TerminalCamera: {fileID: 0}
-  playerMovement: {fileID: 0}
-  begonUnityButtons: {fileID: 0}
---- !u!65 &1513853456
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513853453}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: -0.13, y: 1.03, z: 0}
---- !u!114 &1513853457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513853453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3c0c035127c28b44b3f8628fc5558bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enteredCodeText: {fileID: 1364338511}
-  accessCodeDisplay: {fileID: 0}
-  incorrectPanel: {fileID: 1174419977}
-  correctPanel: {fileID: 1022272910}
-  doorControl: {fileID: 0}
-  terminalAnimator: {fileID: 1513853458}
 --- !u!95 &1513853458
 Animator:
   serializedVersion: 7
@@ -7596,7 +7532,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513853453}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ca11e14d58e9fe447876d68a0482dd29, type: 2}
   m_CullingMode: 0
