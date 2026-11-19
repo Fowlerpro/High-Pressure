@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
 
 public class AIManager : MonoBehaviour
 {
@@ -8,9 +7,10 @@ public class AIManager : MonoBehaviour
 
     public float normalSpeed = 3f;
     public float aggressiveSpeed = 8f;
+    public float aggressiveTime = 10f;
 
-    public float detectionRange = 5f;
-    public float viewAngle = 45f;
+    public float detectionRange = 8f;
+    public float viewAngle = 70f;
 
     public Transform[] patrolPoints;
 
@@ -21,7 +21,7 @@ public class AIManager : MonoBehaviour
 
     Vector3 pingPosition;
 
-    Coroutine aggressiveCoroutine;
+    float aggressiveTimer = 0f;
 
     Vector3 startPosition;
     Quaternion startRotation;
@@ -45,6 +45,16 @@ public class AIManager : MonoBehaviour
         {
             agent.isStopped = true;
             return;
+        }
+
+        if (aggressiveTimer > 0f)
+        {
+            aggressiveTimer -= Time.deltaTime;
+            agent.speed = aggressiveSpeed;
+        }
+        else
+        {
+            agent.speed = normalSpeed;
         }
 
         if (CanSeePlayer())
@@ -167,15 +177,18 @@ public class AIManager : MonoBehaviour
         return false;
     }
 
-    public void Ping(Vector3 position)
+    public void HearNoise(Vector3 position)
     {
-        if (active == false)
-        {
-            return;
-        }
+        active = true;
 
         pingPosition = position;
         investigatingPing = true;
+
+        aggressiveTimer = aggressiveTime;
+        agent.speed = aggressiveSpeed;
+
+        agent.isStopped = false;
+        agent.SetDestination(pingPosition);
     }
 
     public void ActivateEnemy()
@@ -186,42 +199,13 @@ public class AIManager : MonoBehaviour
         agent.isStopped = false;
     }
 
-    public void BecomeAggressive()
-    {
-        active = true;
-
-        if (aggressiveCoroutine != null)
-        {
-            StopCoroutine(aggressiveCoroutine);
-        }
-
-        aggressiveCoroutine =
-            StartCoroutine(
-                AggressiveTime()
-            );
-    }
-
-    IEnumerator AggressiveTime()
-    {
-        agent.speed = aggressiveSpeed;
-
-        yield return new WaitForSeconds(10f);
-
-        agent.speed = normalSpeed;
-
-        aggressiveCoroutine = null;
-    }
-
     public void ResetEnemy()
     {
-        if (aggressiveCoroutine != null)
-        {
-            StopCoroutine(aggressiveCoroutine);
-            aggressiveCoroutine = null;
-        }
-
         active = false;
         investigatingPing = false;
+
+        aggressiveTimer = 0f;
+
         currentPatrolPoint = 0;
 
         agent.isStopped = true;
@@ -239,6 +223,17 @@ public class AIManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Vector3 direction =
+                other.transform.position - transform.position;
+
+            direction.y = 0f;
+
+            if (direction != Vector3.zero)
+            {
+                transform.rotation =
+                    Quaternion.LookRotation(direction);
+            }
+
             PlayerRespawn respawn =
                 other.GetComponent<PlayerRespawn>();
 
