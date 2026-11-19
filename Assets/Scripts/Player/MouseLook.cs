@@ -80,7 +80,7 @@ public class MouseLook : MonoBehaviour
                 targetLean = -1f;
             }
 
-            if (Keyboard.current.eKey.isPressed)
+            if (Keyboard.current.rKey.isPressed)
             {
                 targetLean = 1f;
             }
