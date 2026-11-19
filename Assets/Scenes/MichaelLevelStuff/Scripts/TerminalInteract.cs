@@ -27,7 +27,7 @@ public class TerminalInteract : MonoBehaviour
     {
         if (usingTerminal &&
             (Input.GetMouseButtonDown(1) || Gamepad.current != null &&
-             Gamepad.current.buttonWest.wasPressedThisFrame))
+             Gamepad.current.buttonNorth.wasPressedThisFrame))
         {
             CloseTerminal();
         }

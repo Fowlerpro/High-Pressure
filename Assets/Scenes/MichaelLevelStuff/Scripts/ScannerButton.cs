@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using System.Collections;
 
 public class ScannerButton : MonoBehaviour
@@ -38,8 +39,21 @@ public class ScannerButton : MonoBehaviour
             return;
         }
 
-        // Start scanning when E is pressed
-        if (Input.GetKeyDown(KeyCode.E) && !holdCompleted && !isHolding)
+        // Keyboard E or Controller Right Trigger (R2)
+        bool holdInput =
+            Input.GetKey(KeyCode.E) ||
+            (Gamepad.current != null && Gamepad.current.rightTrigger.isPressed);
+
+        bool pressInput =
+            Input.GetKeyDown(KeyCode.E) ||
+            (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame);
+
+        bool releaseInput =
+            Input.GetKeyUp(KeyCode.E) ||
+            (Gamepad.current != null && Gamepad.current.rightTrigger.wasReleasedThisFrame);
+
+        // Start scanning
+        if (pressInput && !holdCompleted && !isHolding)
         {
             holdTime = 0f;
             isHolding = true;
@@ -54,8 +68,8 @@ public class ScannerButton : MonoBehaviour
             armAnimator.SetBool("IsHolding", true);
         }
 
-        // Continue scanning while E is held
-        if (isHolding && !holdCompleted)
+        // Continue scanning while E or R2 is held
+        if (isHolding && !holdCompleted && holdInput)
         {
             holdTime += Time.deltaTime;
 
@@ -72,8 +86,8 @@ public class ScannerButton : MonoBehaviour
             }
         }
 
-        // Stop scanning when E is released
-        if (Input.GetKeyUp(KeyCode.E) && isHolding)
+        // Stop scanning when E or R2 is released
+        if (releaseInput && isHolding)
         {
             isHolding = false;
 
@@ -96,7 +110,6 @@ public class ScannerButton : MonoBehaviour
 
     public void ResetScanner()
     {
-
         holdTime = 0f;
         isHolding = false;
         holdCompleted = false;
@@ -125,4 +138,5 @@ public class ScannerButton : MonoBehaviour
         armAnimator.SetBool("IsHolding", false);
     }
 }
+
 
