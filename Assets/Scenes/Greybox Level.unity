@@ -140133,6 +140133,9 @@ MonoBehaviour:
   mouseSensitivity: 0.1
   controllerSensitivity: 120
   PlayerBody: {fileID: 2092643391}
+  leanAmount: 0.4
+  leanAngle: 12
+  leanSpeed: 8
 --- !u!114 &1979432474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148841,7 +148844,7 @@ Transform:
   m_GameObject: {fileID: 2092643385}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.6887463, z: -0, w: 0.7250025}
-  m_LocalPosition: {x: 9.93, y: 0.98, z: -17.88}
+  m_LocalPosition: {x: 15.04, y: 0.98, z: -8.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -148883,14 +148886,6 @@ MonoBehaviour:
   enemyLevel1: {fileID: 1850248167}
   enemyLevel2: {fileID: 1481168273}
   deathPanel: {fileID: 126278775}
-  terminalInteracts:
-  - {fileID: 541308231}
-  - {fileID: 589727814}
-  - {fileID: 558644581}
-  computerInteracts:
-  - {fileID: 234256638}
-  - {fileID: 186300387}
-  - {fileID: 1210697225}
 --- !u!1 &2092662119
 GameObject:
   m_ObjectHideFlags: 0
