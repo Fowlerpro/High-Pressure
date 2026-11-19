@@ -14,9 +14,7 @@ public class PlayerRespawn : MonoBehaviour
     public GameObject deathPanel;
 
     CharacterController controller;
-    
-    public TerminalInteract[] terminalInteracts;
-    public ComputerInteract[] computerInteracts;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -30,28 +28,12 @@ public class PlayerRespawn : MonoBehaviour
     public void Respawn()
     {
         StartCoroutine(RespawnRoutine());
-            
-        // Close all terminals
-        foreach (TerminalInteract terminal in terminalInteracts)
-        {
-            if (terminal != null)
-            {
-                terminal.ForceCloseTerminal();
-            }
-        }
-
-        // Close all computers
-        foreach (ComputerInteract computer in computerInteracts)
-        {
-            if (computer != null)
-            {
-                computer.ForceCloseComputer();
-            }
-        }
     }
 
     IEnumerator RespawnRoutine()
     {
+        MouseLook.CanMove = false;
+
         if (deathPanel != null)
         {
             deathPanel.SetActive(true);
@@ -84,6 +66,8 @@ public class PlayerRespawn : MonoBehaviour
         {
             deathPanel.SetActive(false);
         }
+
+        MouseLook.CanMove = true;
     }
 
     public void SetSpawn(Transform newSpawn)

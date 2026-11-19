@@ -8,8 +8,10 @@ public class NoiseTrap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            enemy.BecomeAggressive();
-            enemy.Ping(transform.position);
+            if (enemy != null)
+            {
+                enemy.HearNoise(transform.position);
+            }
         }
     }
 }
