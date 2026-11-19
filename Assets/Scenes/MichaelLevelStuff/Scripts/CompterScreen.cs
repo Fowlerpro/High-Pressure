@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class CompterScreen : MonoBehaviour
@@ -22,6 +23,13 @@ public class CompterScreen : MonoBehaviour
 
     public ScannerButton scannerButton;
 
+    // NEW: Secondary mouse button groups
+    [Header("Secondary Mouse Buttons")]
+    public GameObject mouseMessages;
+    public GameObject mouseFiles;
+    public GameObject mouseLoggedIn;
+    public GameObject mouseRestricted;
+
     private bool isLoggedIn = false;
 
     void Start()
@@ -33,6 +41,12 @@ public class CompterScreen : MonoBehaviour
 
         restrictedButton.SetActive(false);
         restrictedScreen.SetActive(false);
+
+        // Make sure all secondary mouse buttons start hidden
+        mouseMessages.SetActive(false);
+        mouseFiles.SetActive(false);
+        mouseLoggedIn.SetActive(false);
+        mouseRestricted.SetActive(false);
 
         // Make sure all individual messages start hidden
         CloseMessages();
@@ -46,6 +60,12 @@ public class CompterScreen : MonoBehaviour
         loggedInScreen.SetActive(false);
         restrictedScreen.SetActive(false);
 
+        // Secondary mouse buttons
+        mouseMessages.SetActive(true);
+        mouseFiles.SetActive(false);
+        mouseLoggedIn.SetActive(false);
+        mouseRestricted.SetActive(false);
+
         CloseMessages();
     }
 
@@ -57,6 +77,12 @@ public class CompterScreen : MonoBehaviour
         loggedInScreen.SetActive(false);
         restrictedScreen.SetActive(false);
 
+        // Secondary mouse buttons
+        mouseMessages.SetActive(false);
+        mouseFiles.SetActive(true);
+        mouseLoggedIn.SetActive(false);
+        mouseRestricted.SetActive(false);
+
         CloseFiles();
     }
 
@@ -67,6 +93,12 @@ public class CompterScreen : MonoBehaviour
         accessScreen.SetActive(!isLoggedIn);
         loggedInScreen.SetActive(isLoggedIn);
         restrictedScreen.SetActive(false);
+
+        // Secondary mouse buttons
+        mouseMessages.SetActive(false);
+        mouseFiles.SetActive(false);
+        mouseLoggedIn.SetActive(isLoggedIn);
+        mouseRestricted.SetActive(false);
 
         CloseMessages();
     }
@@ -81,6 +113,12 @@ public class CompterScreen : MonoBehaviour
             loggedInScreen.SetActive(false);
             restrictedScreen.SetActive(true);
 
+            // Secondary mouse buttons
+            mouseMessages.SetActive(false);
+            mouseFiles.SetActive(false);
+            mouseLoggedIn.SetActive(false);
+            mouseRestricted.SetActive(true);
+
             CloseMessages();
         }
     }
@@ -93,6 +131,9 @@ public class CompterScreen : MonoBehaviour
         loggedInScreen.SetActive(true);
 
         restrictedButton.SetActive(true);
+
+        // Secondary mouse buttons
+        mouseLoggedIn.SetActive(true);
     }
 
     public void Logout()

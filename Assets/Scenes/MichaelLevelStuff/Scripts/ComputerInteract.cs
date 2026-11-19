@@ -1,9 +1,10 @@
-
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ComputerInteract : MonoBehaviour
 {
     public Camera pcPOV;
+    public GameObject mouseCanvas;
     public GameObject player;
 
     private bool usingComputer = false;
@@ -20,6 +21,7 @@ public class ComputerInteract : MonoBehaviour
         playerController = player.GetComponent<CharacterController>();
 
         pcPOV.gameObject.SetActive(false);
+        mouseCanvas.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -28,13 +30,15 @@ public class ComputerInteract : MonoBehaviour
     void Update()
     {
         // Exit computer
-        if (usingComputer && (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape)))
+        if (usingComputer && (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape) || Gamepad.current != null &&
+             Gamepad.current.buttonWest.wasPressedThisFrame))
         {
             usingComputer = false;
 
             FindAnyObjectByType<PlayerInteraction>().EndInteraction();
 
             pcPOV.gameObject.SetActive(false);
+            mouseCanvas.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -54,6 +58,7 @@ public class ComputerInteract : MonoBehaviour
         usingComputer = true;
 
         pcPOV.gameObject.SetActive(true);
+        mouseCanvas.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -71,6 +76,7 @@ public class ComputerInteract : MonoBehaviour
             FindAnyObjectByType<PlayerInteraction>().EndInteraction();
 
             pcPOV.gameObject.SetActive(false);
+            mouseCanvas.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -81,4 +87,3 @@ public class ComputerInteract : MonoBehaviour
         }
     }
 }
-

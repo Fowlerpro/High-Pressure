@@ -1,4 +1,6 @@
+
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TerminalInteract : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class TerminalInteract : MonoBehaviour
     public MonoBehaviour playerMovement;
     public GameObject begonUnityButtons;
 
+    public TerminalInterface terminalInterface;
+
     private bool usingTerminal = false;
 
     void Start()
@@ -15,15 +19,20 @@ public class TerminalInteract : MonoBehaviour
         TerminalCamera.enabled = false;
 
         begonUnityButtons.SetActive(false);
+
+        terminalInterface.SetInputEnabled(false);
     }
 
     void Update()
     {
-        if (usingTerminal && Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
+        if (usingTerminal &&
+            (Input.GetMouseButtonDown(1) || Gamepad.current != null &&
+             Gamepad.current.buttonWest.wasPressedThisFrame))
         {
             CloseTerminal();
         }
     }
+
     public void Interact()
     {
         if (usingTerminal)
@@ -48,6 +57,8 @@ public class TerminalInteract : MonoBehaviour
 
         begonUnityButtons.SetActive(true);
 
+        terminalInterface.SetInputEnabled(true);
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         MouseLook.CanMove = false;
@@ -56,6 +67,8 @@ public class TerminalInteract : MonoBehaviour
     void CloseTerminal()
     {
         usingTerminal = false;
+
+        terminalInterface.SetInputEnabled(false);
 
         FindAnyObjectByType<PlayerInteraction>().EndInteraction();
 
@@ -74,7 +87,7 @@ public class TerminalInteract : MonoBehaviour
         MouseLook.CanMove = true;
     }
 
-    //Reference for when Jit gets yo ass
+    // Reference for when Jit gets yo ass
     public void ForceCloseTerminal()
     {
         if (usingTerminal)

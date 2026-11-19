@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class TerminalInterface : MonoBehaviour
 {
@@ -14,46 +15,83 @@ public class TerminalInterface : MonoBehaviour
     private Coroutine feedbackCoroutine;
 
     public DoorController doorControl;
-
     public Animator terminalAnimator;
+
+    // Controls whether terminal inputs are allowed
+    private bool inputEnabled = false;
 
     void Start()
     {
         incorrectPanel.SetActive(false);
         correctPanel.SetActive(false);
 
-        // Display symbols as normal text
         enteredCodeText.richText = false;
     }
 
     void Update()
     {
-        // Arrow keys represent the four symbols
+        // Ignore all inputs until the terminal is opened
+        if (!inputEnabled)
+            return;
+
         if (enteredCode.Length < 4)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            // Keyboard controls
+            if (Input.GetKeyDown(KeyCode.LeftArrow) ||
+                Input.GetKeyDown(KeyCode.A))
                 PressSymbol("@");
 
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.UpArrow) ||
+                     Input.GetKeyDown(KeyCode.W))
                 PressSymbol("#");
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow) ||
+                     Input.GetKeyDown(KeyCode.D))
                 PressSymbol("$");
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) ||
+                     Input.GetKeyDown(KeyCode.S))
                 PressSymbol("%");
+
+            // PS5 / Xbox controller D-pad
+            if (Gamepad.current != null)
+            {
+                if (Gamepad.current.dpad.left.wasPressedThisFrame)
+                    PressSymbol("@");
+
+                else if (Gamepad.current.dpad.up.wasPressedThisFrame)
+                    PressSymbol("#");
+
+                else if (Gamepad.current.dpad.right.wasPressedThisFrame)
+                    PressSymbol("$");
+
+                else if (Gamepad.current.dpad.down.wasPressedThisFrame)
+                    PressSymbol("%");
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        // Clear: Backspace or Circle / B
+        if (Input.GetKeyDown(KeyCode.Backspace) ||
+            (Gamepad.current != null &&
+             Gamepad.current.buttonEast.wasPressedThisFrame))
         {
             ClearCode();
         }
 
+        // Submit: Enter or Cross / A
         if (Input.GetKeyDown(KeyCode.Return) ||
-            Input.GetKeyDown(KeyCode.KeypadEnter))
+            Input.GetKeyDown(KeyCode.KeypadEnter) ||
+            (Gamepad.current != null &&
+             Gamepad.current.buttonSouth.wasPressedThisFrame))
         {
             SubmitCode();
         }
+    }
+
+    // Called by TerminalInteract
+    public void SetInputEnabled(bool enabled)
+    {
+        inputEnabled = enabled;
     }
 
     public void PressSymbol(string symbol)
@@ -85,7 +123,6 @@ public class TerminalInterface : MonoBehaviour
         if (enteredCode == accessCodeDisplay.CurrentCode)
         {
             ShowFeedback(correctPanel);
-
             doorControl.OpenDoor();
         }
         else
@@ -124,7 +161,7 @@ public class TerminalInterface : MonoBehaviour
         enteredCodeText.text = enteredCode.PadRight(4, '_');
     }
 
-    //Terminal button animation trigger stuff
+    // Terminal button animation trigger stuff
     public void PressTerminalButton(int buttonNumber)
     {
         terminalAnimator.SetTrigger("Button" + buttonNumber + "Pressed");
