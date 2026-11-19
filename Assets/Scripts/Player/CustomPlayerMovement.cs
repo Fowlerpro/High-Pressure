@@ -25,8 +25,14 @@ public class CustomPlayerMovement : MonoBehaviour
     public float stamina = 100f;
     public float staminaDrain = 25f;
     public float staminaRecharge = 20f;
+    public float runThreshold = 35f;
 
-    public Slider staminaBar;
+    public Slider staminaBarLeft;
+    public Slider staminaBarRight;
+    public Image leftStaminaFill;
+    public Image rightStaminaFill;
+    public float colorAlpha;
+
 
     bool exhausted = false;
 
@@ -44,8 +50,10 @@ public class CustomPlayerMovement : MonoBehaviour
 
         stamina = maxStamina;
 
-        staminaBar.maxValue = maxStamina;
-        staminaBar.value = stamina;
+        staminaBarLeft.maxValue = maxStamina;
+        staminaBarLeft.value = stamina;
+        staminaBarRight.maxValue = maxStamina;
+        staminaBarRight.value = stamina;
 
         cameraObject.fieldOfView = normalFOV;
     }
@@ -140,7 +148,7 @@ public class CustomPlayerMovement : MonoBehaviour
         }
 
         // Allow sprint again after stamina reaches 20
-        if (stamina >= 20f)
+        if (stamina >= runThreshold)
         {
             exhausted = false;
         }
@@ -167,7 +175,9 @@ public class CustomPlayerMovement : MonoBehaviour
             maxStamina
         );
 
-        staminaBar.value = stamina;
+        staminaBarLeft.value = stamina;
+        staminaBarRight.value = stamina;
+        StaminaColor();
 
         // Sprint FOV
         if (sprinting)
@@ -250,5 +260,15 @@ public class CustomPlayerMovement : MonoBehaviour
             yVelocity *
             Time.deltaTime
         );
+    }
+    //Stamina Color Function
+    void StaminaColor()
+    {
+        float staminaPercent = Mathf.Clamp01(stamina / runThreshold); ;
+        Color staminaColor = Color.Lerp(Color.red, Color.white, staminaPercent);
+        staminaColor.a = colorAlpha;
+
+        leftStaminaFill.color = staminaColor;
+        rightStaminaFill.color = staminaColor;
     }
 }
