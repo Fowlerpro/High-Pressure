@@ -14806,8 +14806,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.53, y: 1.97, z: 1.5}
-  m_Center: {x: -4.73, y: 1.22, z: -5.69}
+  m_Size: {x: 4.8320065, y: 1.9699998, z: 1.5}
+  m_Center: {x: -5.8810034, y: 1.22, z: -5.69}
 --- !u!114 &186300387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16395,7 +16395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Scan Keycard to gain access relating to your authority level
+  m_text: Scan back of hand to gain access relating to your authority level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16422,8 +16422,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34.02
+  m_fontSizeBase: 34.02
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -30844,7 +30844,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 6c58a8702444f814787bb8b144711387, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41267,6 +41267,7 @@ MonoBehaviour:
   TerminalCamera: {fileID: 776114121}
   playerMovement: {fileID: 2092643387}
   begonUnityButtons: {fileID: 1704449915}
+  terminalInterface: {fileID: 541308229}
 --- !u!1 &541511999
 GameObject:
   m_ObjectHideFlags: 0
@@ -42613,6 +42614,7 @@ MonoBehaviour:
   TerminalCamera: {fileID: 85365019}
   playerMovement: {fileID: 2092643387}
   begonUnityButtons: {fileID: 948458192}
+  terminalInterface: {fileID: 558644577}
 --- !u!65 &558644582
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45199,6 +45201,7 @@ MonoBehaviour:
   TerminalCamera: {fileID: 115024062}
   playerMovement: {fileID: 2092643387}
   begonUnityButtons: {fileID: 1620843525}
+  terminalInterface: {fileID: 589727810}
 --- !u!65 &589727815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55116,7 +55119,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 6c58a8702444f814787bb8b144711387, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70592,7 +70595,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Scan Keycard to gain access relating to your authority level
+  m_text: Scan back of hand to gain access relating to your authority level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -70619,8 +70622,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34.02
+  m_fontSizeBase: 34.02
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -91095,8 +91098,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.53, y: 1.97, z: 1.5}
-  m_Center: {x: -4.73, y: 1.22, z: -5.69}
+  m_Size: {x: 5.513336, y: 1.9699998, z: 1.5}
+  m_Center: {x: -6.2216682, y: 1.22, z: -5.69}
 --- !u!114 &1210697225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99556,7 +99559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 6c58a8702444f814787bb8b144711387, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119931,7 +119934,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Scan Keycard to gain access relating to your authority level
+  m_text: Scan back of hand to gain access relating to your authority level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -119958,8 +119961,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34.02
+  m_fontSizeBase: 34.02
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
