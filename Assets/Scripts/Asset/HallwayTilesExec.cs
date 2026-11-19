@@ -42,6 +42,7 @@ public class HallwayTilesExec : MonoBehaviour
         public rightPropOptions rightProp;
         public leftPropOptions leftProp;
         public southPropOptions southProp;
+        public ceilingPropOptions ceilingProp;
     }
     private void UpdateWalls()
     {
@@ -133,11 +134,6 @@ public class HallwayTilesExec : MonoBehaviour
             else
                 corners.leftCorner.RemoveWall();
         }
-
-        if (corners.leftCorner.enabled)
-            corners.leftCorner.Spawn();
-        else
-            corners.leftCorner.RemoveWall();
         //Right Corner
         if (corners.rightCorner != null)
         {
@@ -146,11 +142,6 @@ public class HallwayTilesExec : MonoBehaviour
             else
                 corners.rightCorner.RemoveWall();
         }
-
-        if (corners.rightCorner.enabled)
-            corners.rightCorner.Spawn();
-        else
-            corners.rightCorner.RemoveWall();
         //North Corner
         if (corners.northCorner != null)
         {
@@ -159,11 +150,6 @@ public class HallwayTilesExec : MonoBehaviour
             else
                 corners.northCorner.RemoveWall();
         }
-
-        if (corners.northCorner.enabled)
-            corners.northCorner.Spawn();
-        else
-            corners.northCorner.RemoveWall();
         //SouthCorner
         if (corners.southCorner != null)
         {
@@ -172,11 +158,6 @@ public class HallwayTilesExec : MonoBehaviour
             else
                 corners.southCorner.RemoveWall();
         }
-
-        if (corners.southCorner.enabled)
-            corners.southCorner.Spawn();
-        else
-            corners.southCorner.RemoveWall();
         //NorthProp
         if (props.northProp != null)
         {
@@ -193,11 +174,6 @@ public class HallwayTilesExec : MonoBehaviour
             else
                 props.southProp.RemoveProp();
         }
-
-        if (props.southProp.enabled)
-            props.southProp.Spawn();
-        else
-            props.southProp.RemoveProp();
         //LeftProp
         if (props.leftProp != null)
         {
@@ -207,11 +183,6 @@ public class HallwayTilesExec : MonoBehaviour
                 props.leftProp.RemoveProp();
         }
 
-        if (props.leftProp.enabled)
-            props.leftProp.Spawn();
-        else
-            props.leftProp.RemoveProp();
-
         //RightProp
         if (props.rightProp != null)
         {
@@ -220,13 +191,15 @@ public class HallwayTilesExec : MonoBehaviour
             else
                 props.rightProp.RemoveProp();
         }
-
-if (props.rightProp.enabled)
-            props.rightProp.Spawn();
-else
-            props.rightProp.RemoveProp();
+        //CeilingProp
+        if (props.ceilingProp != null)
+        {
+            if (props.ceilingProp.enabled)
+                props.ceilingProp.Spawn();
+            else
+                props.ceilingProp.RemoveProp();
+        }
     }
-
     //Left Wall Settings
     [System.Serializable]
     public class leftWallOptions
@@ -675,6 +648,38 @@ else
 
             DestroyImmediate(newRightProp);
             newRightProp = null;
+        }
+    }
+    //ceiling Prop Settings
+    [System.Serializable]
+    public class ceilingPropOptions
+    {
+        public bool enabled = true;
+        public Transform ceilingPropSpot;
+
+        public GameObject ceilingPropPrefab;
+        private GameObject newCeilingProp;
+        public void Spawn()
+        {
+            if (newCeilingProp != null)
+                return;
+            if (ceilingPropPrefab == null || ceilingPropSpot == null)
+                return;
+            //Debug.Log("spawning Right Prop");
+            newCeilingProp = Instantiate(ceilingPropPrefab, ceilingPropSpot);
+
+            newCeilingProp.transform.localPosition = Vector3.zero;
+            newCeilingProp.transform.localRotation = Quaternion.identity;
+        }
+        public void RemoveProp()
+        {
+            if (newCeilingProp == null)
+                return;
+
+            //Debug.Log("Removing Ceiling Prop");
+
+            DestroyImmediate(newCeilingProp);
+            newCeilingProp = null;
         }
     }
 }
