@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ComputerInteract : MonoBehaviour
 {
@@ -29,7 +30,8 @@ public class ComputerInteract : MonoBehaviour
     void Update()
     {
         // Exit computer
-        if (usingComputer && (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape)))
+        if (usingComputer && (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape) || Gamepad.current != null &&
+             Gamepad.current.buttonWest.wasPressedThisFrame))
         {
             usingComputer = false;
 

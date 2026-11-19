@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
@@ -45,7 +46,8 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         // Interact with the object
-        if (currentInteractable != null && Input.GetMouseButtonDown(0))
+        if (currentInteractable != null && Input.GetMouseButtonDown(0) || Gamepad.current != null &&
+             Gamepad.current.buttonWest.wasPressedThisFrame)
         {
             currentInteractable.SendMessage("Interact");
 

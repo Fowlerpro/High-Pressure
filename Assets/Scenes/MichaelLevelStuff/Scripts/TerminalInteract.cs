@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TerminalInteract : MonoBehaviour
 {
@@ -25,7 +26,8 @@ public class TerminalInteract : MonoBehaviour
     void Update()
     {
         if (usingTerminal &&
-            (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape)))
+            (Input.GetMouseButtonDown(1) || Gamepad.current != null &&
+             Gamepad.current.buttonWest.wasPressedThisFrame))
         {
             CloseTerminal();
         }
