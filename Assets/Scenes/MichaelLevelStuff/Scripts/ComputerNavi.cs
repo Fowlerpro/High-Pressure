@@ -415,4 +415,14 @@ public class ComputerNavi : MonoBehaviour
         currentGroupIndex = -1;
         manualMainFocus = false;
     }
+    public void ResetNavigation()
+    {
+        EventSystem.current?.SetSelectedGameObject(null);
+
+        usingComputer = false;
+        currentGroupIndex = -1;
+        manualMainFocus = false;
+
+        savedButtonIndices.Clear();
+    }
 }

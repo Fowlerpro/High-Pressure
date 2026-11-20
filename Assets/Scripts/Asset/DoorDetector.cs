@@ -27,4 +27,15 @@ public class DoorDetector : MonoBehaviour
             doorAnimator.SetTrigger("CloseDoor");
         }
     }
+    public void ResetDoor()
+    {
+        someoneNear = false;
+
+        if (doorAnimator != null)
+        {
+            // Completely reset the Animator
+            doorAnimator.Rebind();
+            doorAnimator.Update(0f);
+        }
+    }
 }

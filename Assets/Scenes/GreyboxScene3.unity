@@ -14823,6 +14823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pcPOV: {fileID: 328330064}
   mouseCanvas: {fileID: 1666108553}
+  scannerScreen: {fileID: 702156080}
   player: {fileID: 2092643385}
 --- !u!1 &187806407
 GameObject:
@@ -18119,6 +18120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pcPOV: {fileID: 399487611}
   mouseCanvas: {fileID: 1836709363}
+  scannerScreen: {fileID: 491394485}
   player: {fileID: 2092643385}
 --- !u!4 &234256640 stripped
 Transform:
@@ -37125,7 +37127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &491394486
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37165,7 +37167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hold E To Scan
+  m_text: Hold E/RB To Scan
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -53043,7 +53045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hold E To Scan
+  m_text: Hold E/RB To Scan
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -91446,6 +91448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pcPOV: {fileID: 1320552849}
   mouseCanvas: {fileID: 1784404040}
+  scannerScreen: {fileID: 1461590489}
   player: {fileID: 2092643385}
 --- !u!1 &1211539958
 GameObject:
@@ -110368,7 +110371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hold E To Scan
+  m_text: Hold E/RB To Scan
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -155869,7 +155872,7 @@ Transform:
   m_GameObject: {fileID: 2092643385}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.6887463, z: -0, w: 0.7250025}
-  m_LocalPosition: {x: 14.76, y: 0.98, z: -9.79}
+  m_LocalPosition: {x: 15.44, y: 0.98, z: -9.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -155911,6 +155914,14 @@ MonoBehaviour:
   enemyLevel1: {fileID: 1850248167}
   enemyLevel2: {fileID: 1481168273}
   deathPanel: {fileID: 126278775}
+  computers:
+  - {fileID: 418662266}
+  - {fileID: 673213118}
+  - {fileID: 103389806}
+  computerScreens:
+  - {fileID: 1342843446}
+  - {fileID: 1339365660}
+  - {fileID: 249122877}
 --- !u!1 &2092662119
 GameObject:
   m_ObjectHideFlags: 0

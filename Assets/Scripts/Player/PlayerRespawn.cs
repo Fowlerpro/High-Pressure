@@ -13,6 +13,9 @@ public class PlayerRespawn : MonoBehaviour
 
     public GameObject deathPanel;
 
+    public GameObject[] computers;
+    public CompterScreen[] computerScreens;
+
     CharacterController controller;
 
     void Start()
@@ -57,6 +60,25 @@ public class PlayerRespawn : MonoBehaviour
 
         controller.enabled = true;
 
+        // Reset all computers
+        foreach (GameObject computer in computers)
+        {
+            if (computer != null)
+            {
+                computer.GetComponent<AccessCodeDisplay>()?.ResetCode();
+                computer.GetComponent<ComputerNavi>()?.ResetNavigation();
+            }
+        }
+
+        // Reset all computer screens
+        foreach (CompterScreen screen in computerScreens)
+        {
+            if (screen != null)
+            {
+                screen.Logout();
+            }
+        }
+
         if (currentSpawn == level2Spawn && enemyLevel2 != null)
         {
             enemyLevel2.ActivateEnemy();
@@ -65,6 +87,16 @@ public class PlayerRespawn : MonoBehaviour
         if (deathPanel != null)
         {
             deathPanel.SetActive(false);
+        }
+
+        // Reset all automatic doors in the scene
+        DoorDetector[] allDoors = FindObjectsByType<DoorDetector>(
+            FindObjectsSortMode.None
+        );
+
+        foreach (DoorDetector door in allDoors)
+        {
+            door.ResetDoor();
         }
 
         MouseLook.CanMove = true;
