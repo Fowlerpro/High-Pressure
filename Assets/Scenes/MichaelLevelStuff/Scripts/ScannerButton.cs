@@ -118,7 +118,6 @@ public class ScannerButton : MonoBehaviour
 
         scannerDone.SetActive(false);
         scannerDoing.SetActive(false);
-        scannerIdle.SetActive(true);
 
         armAnimator.SetBool("IsHolding", false);
     }

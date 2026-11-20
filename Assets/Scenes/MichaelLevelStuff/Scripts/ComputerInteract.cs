@@ -6,6 +6,7 @@ public class ComputerInteract : MonoBehaviour
 {
     public Camera pcPOV;
     public GameObject mouseCanvas;
+    public GameObject scannerScreen;
     public GameObject player;
 
     private bool usingComputer = false;
@@ -23,6 +24,7 @@ public class ComputerInteract : MonoBehaviour
 
         pcPOV.gameObject.SetActive(false);
         mouseCanvas.SetActive(false);
+        scannerScreen.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -42,6 +44,7 @@ public class ComputerInteract : MonoBehaviour
 
             pcPOV.gameObject.SetActive(false);
             mouseCanvas.SetActive(false);
+            scannerScreen.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -62,6 +65,7 @@ public class ComputerInteract : MonoBehaviour
 
         pcPOV.gameObject.SetActive(true);
         mouseCanvas.SetActive(true);
+        scannerScreen.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -82,6 +86,7 @@ public class ComputerInteract : MonoBehaviour
 
             pcPOV.gameObject.SetActive(false);
             mouseCanvas.SetActive(false);
+            scannerScreen.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

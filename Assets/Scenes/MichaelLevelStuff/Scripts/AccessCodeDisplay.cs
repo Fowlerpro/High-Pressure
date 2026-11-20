@@ -48,10 +48,34 @@ public class AccessCodeDisplay : MonoBehaviour
     {
         CurrentCode = "";
 
+        // Store the available symbols
+        string[] availableSymbols = (string[])symbols.Clone();
+
         for (int i = 0; i < 4; i++)
         {
-            int randomIndex = Random.Range(0, symbols.Length);
-            CurrentCode += symbols[randomIndex];
+            int randomIndex = Random.Range(0, availableSymbols.Length);
+
+            // Add the randomly selected symbol
+            CurrentCode += availableSymbols[randomIndex];
+
+            // Remove that symbol if it has appeared twice
+            int count = 0;
+
+            foreach (char symbol in CurrentCode)
+            {
+                if (symbol.ToString() == availableSymbols[randomIndex])
+                {
+                    count++;
+                }
+            }
+
+            if (count >= 2)
+            {
+                availableSymbols = System.Array.FindAll(
+                    availableSymbols,
+                    s => s != availableSymbols[randomIndex]
+                );
+            }
         }
 
         codeText.text = CurrentCode;
