@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class AccessCodeDisplay : MonoBehaviour
 {
@@ -8,7 +9,13 @@ public class AccessCodeDisplay : MonoBehaviour
 
     public float changeTime = 30f;
 
+    // Force reset cooldown
+    public float resetCooldown = 5f;
+    public Image cooldownBar;
+
     private float timer;
+    private float cooldownTimer;
+    private bool isOnCooldown = false;
 
     public string CurrentCode { get; private set; }
 
@@ -23,10 +30,16 @@ public class AccessCodeDisplay : MonoBehaviour
         UpdateCountdown();
 
         codeText.richText = false;
+
+        if (cooldownBar != null)
+        {
+            cooldownBar.fillAmount = 1f;
+        }
     }
 
     void Update()
     {
+        // Normal passcode countdown
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
@@ -35,6 +48,28 @@ public class AccessCodeDisplay : MonoBehaviour
         }
 
         UpdateCountdown();
+
+        // Force reset cooldown
+        if (isOnCooldown)
+        {
+            cooldownTimer -= Time.deltaTime;
+
+            if (cooldownBar != null)
+            {
+                cooldownBar.fillAmount = cooldownTimer / resetCooldown;
+            }
+
+            if (cooldownTimer <= 0f)
+            {
+                cooldownTimer = 0f;
+                isOnCooldown = false;
+
+                if (cooldownBar != null)
+                {
+                    cooldownBar.fillAmount = 1f;
+                }
+            }
+        }
     }
 
     public void ResetCode()
@@ -42,6 +77,28 @@ public class AccessCodeDisplay : MonoBehaviour
         timer = changeTime;
         GenerateCode();
         UpdateCountdown();
+    }
+
+    // Called by the Force Reset button
+    public void ForceResetCode()
+    {
+        // Prevent resetting if cooldown is active
+        if (isOnCooldown)
+        {
+            return;
+        }
+
+        // Reset the passcode
+        ResetCode();
+
+        // Start cooldown
+        cooldownTimer = resetCooldown;
+        isOnCooldown = true;
+
+        if (cooldownBar != null)
+        {
+            cooldownBar.fillAmount = 1f;
+        }
     }
 
     void GenerateCode()
