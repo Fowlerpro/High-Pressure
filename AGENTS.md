@@ -2,7 +2,7 @@
 - Project name: High-Pressure
 - Unity version: Unity 6000.0.67f1
 - Active game object:
-  - Name: LeftWallSpot
+  - Name: ExhaustionPanel (1)
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
