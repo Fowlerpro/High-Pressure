@@ -193,12 +193,14 @@ public class HallwayTilesExec : MonoBehaviour
 
         public GameObject leftPrefab;
         [SerializeField, HideInInspector]
-        private GameObject newLeftWall;
+        public GameObject newLeftWall;
         public void Spawn()
         {
             if (newLeftWall != null)
                 return;
             if (leftPrefab == null || leftWallSpot == null)
+                return;
+            if (leftWallSpot.childCount > 0)
                 return;
             Debug.Log("spawning left wall");
             newLeftWall = Instantiate(leftPrefab, leftWallSpot);
@@ -226,14 +228,16 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform rightWallSpot;
 
         public GameObject rightPrefab;
-        private GameObject newRightWall;
+        public GameObject newRightWall;
         public void Spawn()
         {
             if (newRightWall != null)
                 return;
             if (rightPrefab == null || rightWallSpot == null)
                 return;
-            Debug.Log("spawning Right wall");
+            if (rightWallSpot.childCount > 0)
+                return;
+            //Debug.Log("spawning Right wall");
             newRightWall = Instantiate(rightPrefab, rightWallSpot);
 
             newRightWall.transform.localPosition = Vector3.zero;
@@ -258,14 +262,16 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform northWallSpot;
 
         public GameObject northPrefab;
-        private GameObject newNorthWall;
+        public GameObject newNorthWall;
         public void Spawn()
         {
             if (newNorthWall != null)
                 return;
             if (northPrefab == null || northWallSpot == null)
                 return;
-            Debug.Log("spawning North wall");
+            if (northWallSpot.childCount > 0)
+                return;
+            //Debug.Log("spawning North wall");
             newNorthWall = Instantiate(northPrefab, northWallSpot);
 
             newNorthWall.transform.localPosition = Vector3.zero;
@@ -290,14 +296,16 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform southWallSpot;
 
         public GameObject southPrefab;
-        private GameObject newSouthWall;
+        public GameObject newSouthWall;
         public void Spawn()
         {
             if (newSouthWall != null)
                 return;
             if (southPrefab == null || southWallSpot == null)
                 return;
-            Debug.Log("spawning South wall");
+            if (southWallSpot.childCount > 0)
+                return;
+            //Debug.Log("spawning South wall");
             newSouthWall = Instantiate(southPrefab, southWallSpot);
 
             newSouthWall.transform.localPosition = Vector3.zero;
@@ -322,14 +330,16 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform floorSpot;
 
         public GameObject floorPrefab;
-        private GameObject newFloor;
+        public GameObject newFloor;
         public void Spawn()
         {
             if (newFloor != null)
                 return;
             if (floorPrefab == null || floorSpot == null)
                 return;
-            Debug.Log("spawning Floor");
+            if (floorSpot.childCount > 0)
+                return;
+            //Debug.Log("spawning Floor");
             newFloor = Instantiate(floorPrefab, floorSpot);
 
             newFloor.transform.localPosition = Vector3.zero;
@@ -354,14 +364,16 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform ceilingSpot;
 
         public GameObject ceilingPrefab;
-        private GameObject newCeiling;
+        public GameObject newCeiling;
         public void Spawn()
         {
             if (newCeiling != null)
                 return;
             if (ceilingPrefab == null || ceilingSpot == null)
                 return;
-            Debug.Log("Spawning Ceiling");
+            if (ceilingSpot.childCount > 0)
+                return;
+            //Debug.Log("Spawning Ceiling");
             newCeiling = Instantiate(ceilingPrefab, ceilingSpot);
 
             newCeiling.transform.localPosition = Vector3.zero;
@@ -386,14 +398,16 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform leftCornerSpot;
 
         public GameObject leftCornerPrefab;
-        private GameObject newLeftCorner;
+        public GameObject newLeftCorner;
         public void Spawn()
         {
             if (newLeftCorner != null)
                 return;
             if (leftCornerPrefab == null || leftCornerSpot == null)
                 return;
-            Debug.Log("spawning Left Corner");
+            if (leftCornerSpot.childCount > 0)
+                return;
+            //Debug.Log("spawning Left Corner");
             newLeftCorner = Instantiate(leftCornerPrefab, leftCornerSpot);
 
             newLeftCorner.transform.localPosition = Vector3.zero;
@@ -418,14 +432,16 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform rightCornerSpot;
 
         public GameObject rightCornerPrefab;
-        private GameObject newRightCorner;
+        public GameObject newRightCorner;
         public void Spawn()
         {
             if (newRightCorner != null)
                 return;
             if (rightCornerPrefab == null || rightCornerSpot == null)
                 return;
-            Debug.Log("spawning Right Corner");
+            if (rightCornerSpot.childCount > 0)
+                return;
+            //Debug.Log("spawning Right Corner");
             newRightCorner = Instantiate(rightCornerPrefab, rightCornerSpot);
 
             newRightCorner.transform.localPosition = Vector3.zero;
@@ -450,14 +466,16 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform northCornerSpot;
 
         public GameObject northCornerPrefab;
-        private GameObject newNorthCorner;
+        public GameObject newNorthCorner;
         public void Spawn()
         {
             if (newNorthCorner != null)
                 return;
             if (northCornerPrefab == null || northCornerSpot == null)
                 return;
-            Debug.Log("spawning North Corner");
+            if (northCornerSpot.childCount > 0)
+                return;
+            //Debug.Log("spawning North Corner");
             newNorthCorner = Instantiate(northCornerPrefab, northCornerSpot);
 
             newNorthCorner.transform.localPosition = Vector3.zero;
@@ -482,14 +500,16 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform southCornerSpot;
 
         public GameObject southCornerPrefab;
-        private GameObject newSouthCorner;
+        public GameObject newSouthCorner;
         public void Spawn()
         {
             if (newSouthCorner != null)
                 return;
             if (southCornerPrefab == null || southCornerSpot == null)
                 return;
-            Debug.Log("spawning South Corner");
+            if (southCornerSpot.childCount > 0)
+                return;
+            //Debug.Log("spawning South Corner");
             newSouthCorner = Instantiate(southCornerPrefab, southCornerSpot);
 
             newSouthCorner.transform.localPosition = Vector3.zero;
@@ -514,12 +534,14 @@ public class HallwayTilesExec : MonoBehaviour
         public Transform northPropSpot;
 
         public GameObject northPropPrefab;
-        private GameObject newNorthProp;
+        public GameObject newNorthProp;
         public void Spawn()
         {
             if (newNorthProp != null)
                 return;
             if (northPropPrefab == null || northPropSpot == null)
+                return;
+            if (northPropSpot.childCount > 0)
                 return;
 #if UNITY_EDITOR
 if (UnityEditor.EditorUtility.IsPersistent(northPropSpot))
@@ -553,12 +575,14 @@ if (UnityEditor.EditorUtility.IsPersistent(northPropSpot))
         public Transform southPropSpot;
 
         public GameObject southPropPrefab;
-        private GameObject newSouthProp;
+        public GameObject newSouthProp;
         public void Spawn()
         {
             if (newSouthProp != null)
                 return;
             if (southPropPrefab == null || southPropSpot == null)
+                return;
+            if (southPropSpot.childCount > 0)
                 return;
             //Debug.Log("spawning South Prop");
             newSouthProp = Instantiate(southPropPrefab, southPropSpot);
@@ -585,12 +609,14 @@ if (UnityEditor.EditorUtility.IsPersistent(northPropSpot))
         public Transform leftPropSpot;
 
         public GameObject leftPropPrefab;
-        private GameObject newLeftProp;
+        public GameObject newLeftProp;
         public void Spawn()
         {
             if (newLeftProp != null)
                 return;
             if (leftPropPrefab == null || leftPropSpot == null)
+                return;
+            if (leftPropSpot.childCount > 0)
                 return;
             //Debug.Log("spawning South Prop");
             newLeftProp = Instantiate(leftPropPrefab, leftPropSpot);
@@ -617,12 +643,14 @@ if (UnityEditor.EditorUtility.IsPersistent(northPropSpot))
         public Transform rightPropSpot;
 
         public GameObject rightPropPrefab;
-        private GameObject newRightProp;
+        public GameObject newRightProp;
         public void Spawn()
         {
             if (newRightProp != null)
                 return;
             if (rightPropPrefab == null || rightPropSpot == null)
+                return;
+            if (rightPropSpot.childCount > 0)
                 return;
             //Debug.Log("spawning Right Prop");
             newRightProp = Instantiate(rightPropPrefab, rightPropSpot);
@@ -649,12 +677,14 @@ if (UnityEditor.EditorUtility.IsPersistent(northPropSpot))
         public Transform ceilingPropSpot;
 
         public GameObject ceilingPropPrefab;
-        private GameObject newCeilingProp;
+        public GameObject newCeilingProp;
         public void Spawn()
         {
             if (newCeilingProp != null)
                 return;
             if (ceilingPropPrefab == null || ceilingPropSpot == null)
+                return;
+            if (ceilingPropSpot.childCount > 0)
                 return;
             //Debug.Log("spawning Right Prop");
             newCeilingProp = Instantiate(ceilingPropPrefab, ceilingPropSpot);
