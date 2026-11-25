@@ -3,6 +3,12 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Collections;
 
+//This script is for the keycard scanner, which is activated by hitting E on keyboard or bottom right bumper on a controller
+
+//This script also updates the progress bar and display prompt of the scanner while also playing the fucking hand animation
+
+//Finally this script also checks whether the button is being held or not, but when it is held down long enough
+//it calls the login function on the computer screen script
 public class ScannerButton : MonoBehaviour
 {
     public CompterScreen computerScreen;

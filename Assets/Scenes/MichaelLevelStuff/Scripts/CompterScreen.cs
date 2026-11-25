@@ -1,5 +1,8 @@
 using UnityEngine;
 
+//This big script handles all the computer panel/screen activations and disables
+
+//It also handles the logging in and out states
 public class CompterScreen : MonoBehaviour
 {
     public GameObject messagesScreen;
