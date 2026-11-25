@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//This script detects the player detection on a specific collider, that triggers the win screen while also locking player movement
+
+//It also lets you hook up an onclick to a button that changes to the title screen
 public class WinTrigger : MonoBehaviour
 {
     public GameObject winPanel;

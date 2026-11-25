@@ -1,7 +1,8 @@
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//This script handles the initial interaction of the terminal which locks player movement, switches cameras,
+//enables terminal input and can reverse it all back to normal
 public class TerminalInteract : MonoBehaviour
 {
     public Camera playerCamera;

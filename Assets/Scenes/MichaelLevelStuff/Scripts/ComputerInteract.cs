@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
+//This script is similar to the terminal interact script, basically it handles camera switching, UI activation and
+//disables player movement
 public class ComputerInteract : MonoBehaviour
 {
     public Camera pcPOV;

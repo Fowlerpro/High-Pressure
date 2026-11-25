@@ -2,6 +2,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+//This is probably the puzzle's most important script
+
+//This one handles the passcode generation that resets every 30 seconds (wtv inspector time limit is) while also
+//handling the force reset button and its cooldown bar
 public class AccessCodeDisplay : MonoBehaviour
 {
     public TextMeshProUGUI codeText;

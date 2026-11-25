@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//This script handles the triggers to play a door's open and close animations
 public class DoorController : MonoBehaviour
 {
     public Animator doorAnimator;

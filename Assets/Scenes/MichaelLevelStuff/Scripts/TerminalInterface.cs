@@ -3,6 +3,8 @@ using TMPro;
 using System.Collections;
 using UnityEngine.InputSystem;
 
+//This script does alot of shit like hooking up each symbol button to different control schemes, button animation triggers,
+//input and enter and clear passcodes, activates correct and incorrect visual feedback as well as opens the bay door
 public class TerminalInterface : MonoBehaviour
 {
     public TextMeshProUGUI enteredCodeText;
@@ -161,7 +163,7 @@ public class TerminalInterface : MonoBehaviour
         enteredCodeText.text = enteredCode.PadRight(4, '_');
     }
 
-    // Terminal button animation trigger stuff
+    // Terminal button animation trigger
     public void PressTerminalButton(int buttonNumber)
     {
         terminalAnimator.SetTrigger("Button" + buttonNumber + "Pressed");

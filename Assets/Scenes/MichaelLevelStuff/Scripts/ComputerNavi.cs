@@ -4,6 +4,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+//This is a big boy right here
+
+//This script handles the navigation of the computer interface across all control schemes (except for mouse input, for the most part)
+
+//It also handles the computer's dial turn animations which corrospond to specific navigation actions
 public class ComputerNavi : MonoBehaviour
 {
     [System.Serializable]
