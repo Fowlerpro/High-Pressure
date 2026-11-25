@@ -2256,7 +2256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &37793162
 Transform:
   m_ObjectHideFlags: 0
@@ -5755,7 +5755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &85859025
 Transform:
   m_ObjectHideFlags: 0
@@ -20415,7 +20415,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 268567912}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PressNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &268567912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26674,7 +26686,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 365899534}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PressNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &365899534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27608,6 +27632,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 380448803}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 380448804}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 380448805}
   m_SourcePrefab: {fileID: 100100000, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
 --- !u!1 &380448800 stripped
 GameObject:
@@ -27640,6 +27670,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18263471, y: 0.38266763, z: 0.36671144}
   m_Center: {x: -0.008682646, y: -0.09133382, z: -0.028199837}
+--- !u!114 &380448804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380448800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e686701698d221c419d25ad746615042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 1979432476}
+  dialpadCamera: {fileID: 1764399960}
+  dialpadCanvas: {fileID: 1629413404}
+  playerMovement: {fileID: 2092643387}
+  DialPadInterface: {fileID: 380448805}
+--- !u!114 &380448805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380448800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2672a2e80d9e2f6469541c12129695f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enteredCodeText: {fileID: 1031889783}
+  correctCode: 6769
 --- !u!1 &380704448
 GameObject:
   m_ObjectHideFlags: 0
@@ -28793,7 +28854,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 391364999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be07ac2367274ef419cb89b328bf0134, type: 3}
+  m_Script: {fileID: 11500000, guid: 739049e905e433a4fba2125b86090551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   winPanel: {fileID: 102297766}
@@ -35663,7 +35724,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 477359368}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PressNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &477359368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37792,7 +37865,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 508751582}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PressNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &508751582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41855,7 +41940,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 549321080}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PressNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &549321080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44853,7 +44950,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 587637009}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PressNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &587637009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55281,7 +55390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &728275045
 Transform:
   m_ObjectHideFlags: 0
@@ -62868,7 +62977,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 821855975}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PressNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &821855975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63314,7 +63435,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 824201684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: SubmitCode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &824201684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80348,6 +80481,143 @@ Transform:
   m_Children: []
   m_Father: {fileID: 479287967}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1031889781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1031889782}
+  - component: {fileID: 1031889784}
+  - component: {fileID: 1031889783}
+  m_Layer: 0
+  m_Name: NumberText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1031889782
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031889781}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.2506, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1629413405}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 629, y: 276}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1031889783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031889781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: ----
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 108.8
+  m_fontSizeBase: 108.8
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -242.25204, w: -205.13976}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1031889784
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031889781}
+  m_CullTransparentMesh: 1
 --- !u!1 &1031890675
 GameObject:
   m_ObjectHideFlags: 0
@@ -125368,6 +125638,7 @@ RectTransform:
   - {fileID: 2039182838}
   - {fileID: 824201682}
   - {fileID: 1683912119}
+  - {fileID: 1031889782}
   m_Father: {fileID: 380448802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -126442,7 +126713,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1641729908}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PressNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1641729908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129184,7 +129467,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1683912121}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: ClearCode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1683912121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155953,7 +156248,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2039182840}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PressNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2039182840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160832,7 +161139,7 @@ Transform:
   m_GameObject: {fileID: 2092643385}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.6887463, z: -0, w: 0.7250025}
-  m_LocalPosition: {x: 14.65, y: 0.98, z: -12.31}
+  m_LocalPosition: {x: -12.04, y: 0.98, z: -70.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
