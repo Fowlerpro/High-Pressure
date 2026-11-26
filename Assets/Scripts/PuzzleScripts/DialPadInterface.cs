@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using TMPro;
 using System.Collections;
@@ -22,6 +21,8 @@ public class DialPadInterface : MonoBehaviour
 
     //Reference to the utility closet door script
     public UtilityDoors utilityDoors;
+
+    public Animator dialPadAnimator;
 
     private bool inputEnabled = false;
 
@@ -167,5 +168,11 @@ public class DialPadInterface : MonoBehaviour
     void UpdateDisplay()
     {
         enteredCodeText.text = enteredCode.PadRight(4, '_');
+    }
+
+    // Plays the animation for the selected dial pad button
+    public void PlayButtonAnimation(string animationName)
+    {
+        dialPadAnimator.SetTrigger(animationName);
     }
 }

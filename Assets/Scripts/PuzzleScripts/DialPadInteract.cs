@@ -9,8 +9,6 @@ public class DialPadInteract : MonoBehaviour
     public Camera playerCamera;
     public Camera dialpadCamera;
 
-    public GameObject dialpadCanvas;
-
     public MonoBehaviour playerMovement;
 
     public DialPadInterface DialPadInterface;
@@ -22,7 +20,6 @@ public class DialPadInteract : MonoBehaviour
     void Start()
     {
         dialpadCamera.enabled = false;
-        dialpadCanvas.SetActive(false);
 
         DialPadInterface.SetInputEnabled(false);
     }
@@ -66,8 +63,6 @@ public class DialPadInteract : MonoBehaviour
             playerMovement.enabled = false;
         }
 
-        dialpadCanvas.SetActive(true);
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -91,8 +86,6 @@ public class DialPadInteract : MonoBehaviour
         {
             playerMovement.enabled = true;
         }
-
-        dialpadCanvas.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

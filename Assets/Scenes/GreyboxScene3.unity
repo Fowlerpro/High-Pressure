@@ -2605,8 +2605,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4283848278
+  m_fontColor: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -20564,10 +20564,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    m_PressedColor: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -20597,6 +20597,18 @@ MonoBehaviour:
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &268567912
@@ -25982,8 +25994,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4283848278
+  m_fontColor: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -26835,10 +26847,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    m_PressedColor: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -26868,6 +26880,18 @@ MonoBehaviour:
           m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button7
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &365899534
@@ -27676,6 +27700,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1152869019}
     m_Modifications:
+    - target: {fileID: -9198430570220657407, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02672993
+      objectReference: {fileID: 0}
+    - target: {fileID: -9198430570220657407, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2431455
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.233036
@@ -27728,10 +27760,30 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a2cb3f425a4fdcf4fbfdb05fa43306e7, type: 2}
+    - target: {fileID: -2486601121393046564, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1666816
+      objectReference: {fileID: 0}
+    - target: {fileID: -2486601121393046564, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.09713385
+      objectReference: {fileID: 0}
     - target: {fileID: -2328003878840630365, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e4c0d7b267a435744a1f373ce148d89a, type: 2}
+      objectReference: {fileID: 2100000, guid: 674c9e97a4d6d2c4e82fcd7484838593, type: 2}
+    - target: {fileID: -1928219180316400345, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1591466
+      objectReference: {fileID: 0}
+    - target: {fileID: -1512469791531637315, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02672993
+      objectReference: {fileID: 0}
+    - target: {fileID: -1512469791531637315, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1666816
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       propertyPath: m_Name
       value: Standard Terminal Keypad
@@ -27744,6 +27796,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Interactable
       objectReference: {fileID: 0}
+    - target: {fileID: 1172384988132331933, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02529528
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172384988132331933, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1983652
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172384988132331933, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1591466
+      objectReference: {fileID: 0}
     - target: {fileID: 2186675265164993100, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -27752,6 +27816,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b579ad00cde695f4c923986ffd395932, type: 2}
+    - target: {fileID: 3300913674446824185, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_Name
+      value: Clear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432475254958674198, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02583812
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432475254958674198, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0916734
+      objectReference: {fileID: 0}
     - target: {fileID: 3662496920707019771, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -27760,6 +27836,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b579ad00cde695f4c923986ffd395932, type: 2}
+    - target: {fileID: 5032272408607083632, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02672987
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032272408607083632, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01698902
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399695982873042937, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_Name
+      value: Enter
+      objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -27767,7 +27855,7 @@ PrefabInstance:
     - target: {fileID: 7098807247668560616, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e4c0d7b267a435744a1f373ce148d89a, type: 2}
+      objectReference: {fileID: 2100000, guid: 80c07c5c383d94c458f882acace6d6dd, type: 2}
     - target: {fileID: 7111653995965282520, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -27776,10 +27864,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e4c0d7b267a435744a1f373ce148d89a, type: 2}
+    - target: {fileID: 7372001895347627191, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.09021717
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372001895347627191, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01698908
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402137348671880168, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2431456
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402137348671880168, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.09713382
+      objectReference: {fileID: 0}
     - target: {fileID: 7937035000765830434, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b579ad00cde695f4c923986ffd395932, type: 2}
+    - target: {fileID: 8751065258932423099, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1666813
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751065258932423099, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01698896
+      objectReference: {fileID: 0}
     - target: {fileID: 8771444544857134269, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -27809,6 +27921,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 380448805}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 380448806}
   m_SourcePrefab: {fileID: 100100000, guid: 863958373717a004bb6b4cea3f2c5d5c, type: 3}
 --- !u!1 &380448800 stripped
 GameObject:
@@ -27877,6 +27992,29 @@ MonoBehaviour:
   incorrectLight: {fileID: 1201491122}
   feedbackTime: 1
   utilityDoors: {fileID: 96940157}
+  dialPadAnimator: {fileID: 380448806}
+--- !u!95 &380448806
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380448800}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 041d23e1587699f4a89b276711a463c3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &380704448
 GameObject:
   m_ObjectHideFlags: 0
@@ -28612,8 +28750,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4283848278
+  m_fontColor: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -28749,8 +28887,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4283848278
+  m_fontColor: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -35878,10 +36016,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    m_PressedColor: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -35911,6 +36049,18 @@ MonoBehaviour:
           m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button5
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &477359368
@@ -38019,10 +38169,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    m_PressedColor: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -38052,6 +38202,18 @@ MonoBehaviour:
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &508751582
@@ -41244,8 +41406,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4283848278
+  m_fontColor: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -42094,10 +42256,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    m_PressedColor: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -42127,6 +42289,18 @@ MonoBehaviour:
           m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &549321080
@@ -45104,10 +45278,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    m_PressedColor: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -45137,6 +45311,18 @@ MonoBehaviour:
           m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button8
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &587637009
@@ -63131,10 +63317,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.4415095, g: 0.4415095, b: 0.4415095, a: 1}
-    m_PressedColor: {r: 0.07169801, g: 0.07169801, b: 0.07169801, a: 1}
-    m_SelectedColor: {r: 0.4431373, g: 0.4431373, b: 0.4431373, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -63164,6 +63350,18 @@ MonoBehaviour:
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &821855975
@@ -63557,7 +63755,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824201681}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.016}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0188}
   m_LocalScale: {x: 2.0004, y: 10.525956, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63589,10 +63787,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    m_PressedColor: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -63622,6 +63820,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EnterButton
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &824201684
@@ -72489,8 +72699,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4283848278
+  m_fontColor: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -80385,8 +80595,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4283848278
+  m_fontColor: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -103684,8 +103894,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4283848278
+  m_fontColor: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -106641,8 +106851,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4283848278
+  m_fontColor: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -126782,10 +126992,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    m_PressedColor: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -126815,6 +127025,18 @@ MonoBehaviour:
           m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button6
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1641729908
@@ -129504,7 +129726,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683912118}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.016}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0188}
   m_LocalScale: {x: 2.0004, y: 10.525956, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -129536,10 +129758,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    m_PressedColor: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -129569,6 +129791,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClearButton
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1683912121
@@ -156317,10 +156551,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    m_PressedColor: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -156350,6 +156584,18 @@ MonoBehaviour:
           m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380448805}
+        m_TargetAssemblyTypeName: DialPadInterface, Assembly-CSharp
+        m_MethodName: PlayButtonAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button9
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2039182840
