@@ -1,24 +1,39 @@
+
 using UnityEngine;
 using TMPro;
+using System.Collections;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-//This one handles keypad buttons, code input and controller/keyboard controls
+//Handles dial pad buttons, code input and correct/incorrect feedback
 public class DialPadInterface : MonoBehaviour
 {
     public TextMeshProUGUI enteredCodeText;
 
-    // The fixed code for opening the utility closet
+    // Fixed code for opening the utility closet
     public string correctCode = "4826";
+
+    // Correct and incorrect feedback lights
+    public GameObject correctLight;
+    public GameObject incorrectLight;
+
+    public float feedbackTime = 1f;
 
     private string enteredCode = "";
 
+    //Reference to the utility closet door script
+    public UtilityDoors utilityDoors;
+
     private bool inputEnabled = false;
+
+    private Coroutine feedbackCoroutine;
 
     void Start()
     {
         enteredCodeText.richText = false;
+
+        correctLight.SetActive(false);
+        incorrectLight.SetActive(false);
+
         UpdateDisplay();
     }
 
@@ -66,17 +81,15 @@ public class DialPadInterface : MonoBehaviour
             ClearCode();
         }
 
-        // Submit: Enter or Controller South (A / Cross)
+        // Submit: Enter
         if (Input.GetKeyDown(KeyCode.Return) ||
-            Input.GetKeyDown(KeyCode.KeypadEnter) ||
-            (Gamepad.current != null &&
-             Gamepad.current.buttonSouth.wasPressedThisFrame))
+            Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             SubmitCode();
         }
     }
 
-    // Enables or disables keypad input
+    // Enables or disables dial pad input
     public void SetInputEnabled(bool enabled)
     {
         inputEnabled = enabled;
@@ -109,17 +122,48 @@ public class DialPadInterface : MonoBehaviour
 
         if (enteredCode == correctCode)
         {
-            Debug.Log("Correct code!");
+            utilityDoors.UnlockAndOpen();
+
+            ShowLight(correctLight);
+
+            // Door opening will be added later
         }
         else
         {
-            Debug.Log("Incorrect code!");
+            ShowLight(incorrectLight);
         }
 
         ClearCode();
     }
 
-    // Updates the keypad display
+    // Activates the correct feedback light
+    void ShowLight(GameObject light)
+    {
+        if (feedbackCoroutine != null)
+        {
+            StopCoroutine(feedbackCoroutine);
+        }
+
+        correctLight.SetActive(false);
+        incorrectLight.SetActive(false);
+
+        light.SetActive(true);
+
+        feedbackCoroutine = StartCoroutine(HideLights());
+    }
+
+    // Turns off feedback lights after a short delay
+    IEnumerator HideLights()
+    {
+        yield return new WaitForSeconds(feedbackTime);
+
+        correctLight.SetActive(false);
+        incorrectLight.SetActive(false);
+
+        feedbackCoroutine = null;
+    }
+
+    // Updates the dial pad display
     void UpdateDisplay()
     {
         enteredCodeText.text = enteredCode.PadRight(4, '_');

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 //Handles camera switching, player movement and keypad UI activation
@@ -13,6 +14,8 @@ public class DialPadInteract : MonoBehaviour
     public MonoBehaviour playerMovement;
 
     public DialPadInterface DialPadInterface;
+
+    public Button firstButton;
 
     private bool usingDialpad = false;
 
@@ -53,6 +56,8 @@ public class DialPadInteract : MonoBehaviour
 
         DialPadInterface.SetInputEnabled(true);
 
+        EventSystem.current.SetSelectedGameObject(firstButton.gameObject);
+
         playerCamera.enabled = false;
         dialpadCamera.enabled = true;
 
@@ -74,6 +79,8 @@ public class DialPadInteract : MonoBehaviour
         usingDialpad = false;
 
         DialPadInterface.SetInputEnabled(false);
+
+        EventSystem.current.SetSelectedGameObject(null);
 
         FindAnyObjectByType<PlayerInteraction>().EndInteraction();
 
