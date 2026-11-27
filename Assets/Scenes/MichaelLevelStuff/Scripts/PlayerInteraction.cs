@@ -56,7 +56,8 @@ public class PlayerInteraction : MonoBehaviour
             currentInteractable.SendMessage("Interact");
 
             //For stall door specifically
-            if (!currentInteractable.GetComponent<StallDoorInteract>())
+            if (!currentInteractable.GetComponent<StallDoorInteract>() &&
+                !currentInteractable.GetComponent<FusePickup>())
             {
                 isInteracting = true;
                 reticle.gameObject.SetActive(false);
