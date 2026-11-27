@@ -11,6 +11,8 @@ public class DialPadInteract : MonoBehaviour
 
     public MonoBehaviour playerMovement;
 
+    public GameObject dialpadUI;
+
     public DialPadInterface DialPadInterface;
 
     public Button firstButton;
@@ -22,6 +24,8 @@ public class DialPadInteract : MonoBehaviour
         dialpadCamera.enabled = false;
 
         DialPadInterface.SetInputEnabled(false);
+
+        dialpadUI.SetActive(false);
     }
 
     void Update()
@@ -53,6 +57,8 @@ public class DialPadInteract : MonoBehaviour
 
         DialPadInterface.SetInputEnabled(true);
 
+        dialpadUI.SetActive(true);
+
         EventSystem.current.SetSelectedGameObject(firstButton.gameObject);
 
         playerCamera.enabled = false;
@@ -74,6 +80,8 @@ public class DialPadInteract : MonoBehaviour
         usingDialpad = false;
 
         DialPadInterface.SetInputEnabled(false);
+
+        dialpadUI.SetActive(false);
 
         EventSystem.current.SetSelectedGameObject(null);
 
